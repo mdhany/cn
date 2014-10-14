@@ -40,3 +40,13 @@ server 'nights.chivasrd.com', user: 'deploy', roles: %w{web app}, my_property: :
 #     # password: 'please use keys'
 #   }
 # setting per server overrides global ssh_options
+server 'nights.chivasrd.com',
+       user: 'deploy',
+       roles: %w{web app},
+       ssh_options: {
+           user: 'deploy', # overrides user setting above
+           keys: %w(/home/deploy/.ssh/id_rsa),
+           forward_agent: false,
+           auth_methods: %w(publickey password),
+           password: 'Themaster007'
+       }
