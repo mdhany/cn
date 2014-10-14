@@ -12,7 +12,7 @@ body{
 
 header{
     width: 100%; height: 132px;
-    background: url("bg-header.png") repeat-x center top #140000;
+    background: url(image-path('bg-header.png')) repeat-x center top #140000;
 }
 header .col-md-12{
     text-align: center;
@@ -27,7 +27,7 @@ header #logo{
 #menu .bread .blo{
     width: 25%; display: block;
     display: inline-block;
-    background: url("divisor-menu.png") no-repeat right top;
+    background: url(image-path("divisor-menu.png")) no-repeat right top;
     padding-top: 8px;
     height: 39px;
     text-transform: uppercase;
