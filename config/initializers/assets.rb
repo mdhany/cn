@@ -1,1 +1,1 @@
-Rails.application.config.assets.precompile += %w( mobiles_layout.css )
+Rails.application.config.assets.precompile += %w( application_m.css )
