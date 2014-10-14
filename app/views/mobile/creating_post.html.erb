@@ -5,7 +5,7 @@
     <h1 class="mbottom">¿Por qué brindas?</h1>
 
     <div class="row">
-      <div class="col-md-6 text-right">
+      <div class="mitad text-right">
         <%= form_tag select_activity_path do %>
             <%= hidden_field_tag :email, @me['email'] %>
             <%= hidden_field_tag :name, @me['name'] %>
@@ -13,7 +13,7 @@
             <p><%= submit_tag "Amistad", class: ' btn btn-lg same btn-black' %></p>
         <% end %>
       </div>
-      <div class="col-md-6 text-left">
+      <div class="mitad text-left">
         <%= form_tag select_activity_path do %>
             <%= hidden_field_tag :email, @me['email'] %>
             <%= hidden_field_tag :name, @me['name'] %>
@@ -25,7 +25,7 @@
 
 
     <div class="row">
-      <div class="col-md-6 text-right">
+      <div class="mitad text-right">
         <%= form_tag select_activity_path do %>
             <%= hidden_field_tag :email, @me['email'] %>
             <%= hidden_field_tag :name, @me['name'] %>
@@ -33,7 +33,7 @@
             <p><%= submit_tag "Cumpleaños", class: 'btn btn-lg same btn-black' %></p>
         <% end %>
       </div>
-      <div class="col-md-6 text-left">
+      <div class="mitad text-left">
         <%= form_tag select_activity_path do %>
             <%= hidden_field_tag :email, @me['email'] %>
             <%= hidden_field_tag :name, @me['name'] %>

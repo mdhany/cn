@@ -38,10 +38,11 @@
                   "Catas",
                   "Torneos",
                   "Club de Descuentos o Regalos"]  %>
-    <%= f.label 'Le gustaría participar en (seleccionar todas las que apliquen):' %><br>
+    <%#= f.label 'Le gustaría participar en (seleccionar todas las que apliquen):' %><br>
     <%# options.each do |o| %>
-        <%#= f.check_box 'as', class: 'form-control' %>
+        <%#= f.check_box :customer, 'sas', {}, class: 'form-control' %>
     <%# end %>
+    <%= f.label 'Algunos de sus intereses:' %><br>
     <%= f.text_field :interest, class: 'chivas-form' %>
   </div>
   <div class="actions">

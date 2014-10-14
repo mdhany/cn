@@ -12,8 +12,8 @@
   <h1 class="mbottom text-hide"><%= image_tag 'tl-felicidades.png' %>¡Felicidades!</h1>
   <div class="center-block fondo-gris">
     <div class="row">
-        <div class="col-md-6"><%= image_tag "#{@win.image}", class: 'img-responsive img-left' %></div>
-        <div class="col-md-6">
+        <div class="mitad"><%= image_tag "#{@win.image}", class: 'img-responsive img-left' %></div>
+        <div class="mitad">
         <h1 class="mbottom">HAS GANADO</h1>
         <p class="mbottom"><%= @win.name %></p>
         <% if current_customer %>
@@ -34,7 +34,7 @@
 
 <%= javascript_tag do %>
     $('#botella').click(function() {
-    var deg = <%= @win.position * 100 %>;
+    var deg = <%= @win.position + 3600 %>;
     var css = '-webkit-transform: rotate(' + deg + 'deg);';
     $(this).attr('style', css);
 

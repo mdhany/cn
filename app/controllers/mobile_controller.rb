@@ -62,6 +62,8 @@ class MobileController < ApplicationController
           @graph.put_object(img['id'], 'tags', :tag_uid => f )
         end
         @graph.put_object(img['id'], 'tags', :tag_text => '@ChivasDominicana' )
+    else
+      redirect_to select_friend_path, notice: 'Por favor, vuelva a intentar.'
     end
 
     redirect_to ruleta_path
@@ -78,7 +80,9 @@ class MobileController < ApplicationController
     #Habra un arras con todos los regalos, y se ejecutara un random entre ellos.
     #Cuando salga debe ser debitado del historial
     #Debe ser asignado a la entrada
+    gifts = nil
     gifts = Gift.where(["event_id = ? and inventory > 0", current_collector.event_id])
+    @win = nil
     @win = gifts.sample
   end
 
