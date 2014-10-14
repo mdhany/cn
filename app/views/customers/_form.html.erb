@@ -39,9 +39,10 @@
                   "Torneos",
                   "Club de Descuentos o Regalos"]  %>
     <%= f.label 'Le gustaría participar en (seleccionar todas las que apliquen):' %><br>
-    <% options.each do |o| %>
-        <%= f.check_box :interest, class: 'form-control',o %>
-    <% end %>
+    <%# options.each do |o| %>
+        <%#= f.check_box 'as', class: 'form-control' %>
+    <%# end %>
+    <%= f.text_field :interest, class: 'chivas-form' %>
   </div>
   <div class="actions">
     <%= f.submit {[class: 'btn btn-lg btn-black']} %>
