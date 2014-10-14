@@ -1,0 +1,65 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Lugar:</strong>
+  <%= @event.place %>
+</p>
+
+<p>
+  <strong>Fecha de Evento:</strong>
+  <%= @event.d_event %>
+</p>
+
+
+<div class="portlet box green">
+  <div class="portlet-title">
+    <div class="caption"><i class="icon-cogs"></i>Regalos para Evento</div>
+    <div class="tools">
+      <a class="collapse" href="javascript:;"></a>
+      <a class="config" data-toggle="modal" href="#portlet-config"></a>
+      <a class="reload" href="javascript:;"></a>
+      <a class="remove" href="javascript:;"></a>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Disponibles</th>
+          <th>Provistos</th>
+          <th>Posición</th>
+
+          <th colspan="3"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @gifts.each do |g| %>
+            <tr>
+              <td><%= g.id %></td>
+              <td><%= g.name %></td>
+              <td><%= g.inventory %></td>
+              <td><%= g.predicted %></td>
+              <td><%= g.position %></td>
+
+              <td><%= link_to 'Ver', g %></td>
+              <td><%= link_to 'Editar', edit_gift_path(g) %></td>
+              <td><%= link_to 'Eliminar', g, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+       <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%= link_to 'Agregar Regalo', new_gift_path %>
+
+<hr/>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    'mobiles_layout', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= image_tag 'logo-chivasnight.png', id: 'logo'%>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="menu">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row bread">
+          <div class="blo first">Reto </div>
+          <div class="blo">Gana</div>
+          <div class="blo last">Club</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="contenido">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 center">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 center">
+        <p>Política de Pivacidad  |  Términos y Condiciones  |  Descargo</p>
+        <br/>
+        <small>
+          El consumo de alcohol perjudica la salud. Ley 42-01. Disfruta Chivas Regal responsablemente. <br/>
+          © Pernod Ricard Dominicana 2014 <br/>
+
+        </small>
+        <small>
+          <%= link_to("Salir", destroy_collector_session_path, method: :delete) %>
+        </small>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+</body>
+</html>

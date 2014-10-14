@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @gift.name %>
+</p>
+
+<p>
+  <strong>Inventory:</strong>
+  <%= @gift.inventory %>
+</p>
+
+<p>
+  <strong>Predicted:</strong>
+  <%= @gift.predicted %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @gift.priority %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @gift.event_id %>
+</p>
+
+<%= link_to 'Edit', edit_gift_path(@gift) %> |
+<%= link_to 'Volver a Evento', event_path(@gift.event) %>

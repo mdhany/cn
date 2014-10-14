@@ -1,0 +1,29 @@
+<h1>Entrada de Datos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Consumidor</th>
+      <th>Evento</th>
+      <th>Publicación</th>
+      <th>Regalo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entries.each do |entry| %>
+      <tr>
+        <td><%= entry.customer.name %></td>
+        <td><%= entry.event.name %></td>
+        <td><%= entry.post %></td>
+        <td><%= entry.gift %></td>
+        <td><%= link_to 'Ver', entry %></td>
+        <td><%= link_to 'Eliminar', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

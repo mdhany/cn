@@ -1,0 +1,117 @@
+<%= form_tag({action: :publishing_post}, multipart: true) do %>
+<div class="col-md-12">
+  <div id="foto">
+    <%= image_tag 'step-2.png', class: 'img-responsive img-center' %>
+    <div class="center-block fondo-gris">
+    <h1 class="mbottom">¡Muéstranos con quien brindas!</h1>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-3 form-upload mbottom">
+        <%= file_field_tag :picture, capture: "camera", accept: "image/*" %>
+      </div>
+    </div>
+      <div class="row">
+        <%= link_to "javascript:;", id: 'b-foto' do %>
+            <%= image_tag 'btn-continuar.png', class: 'img-responsive img-center' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div id="tag" style="display: none;">
+    <%= image_tag 'step-2.png', class: 'img-responsive img-center' %>
+    <div class="center-block fondo-gris">
+    <h1 class="mbottom">Tagea a tus amigos</h1>
+      <p>Selecciona por lo menos a tres de tus amigos.</p>
+    <div class="overf-friend">
+    <ul id="list_friend">
+      <% @friends.each_with_index do |f, i| %>
+          <li id="friend<%= i %>" fb="<%= f['id'] %>">
+            <%= image_tag f['picture']['data']['url'] %>
+            <span><%= f['name'] %></span>
+          </li>
+      <% end %>
+    </ul>
+    </div>
+    <p>Continúa para que veas cómo quedará tu publicación</p>
+    <%= link_to "javascript:;", id: 'b-tag' do %>
+        <%= image_tag 'btn-continuar.png', class: 'img-responsive img-center' %>
+    <% end %>
+    </div>
+  </div>
+
+  <div id="post" style="display: none;">
+    <%= image_tag 'step-3.png', class: 'img-responsive img-center' %>
+    <div class="center-block fondo-gris">
+    <h1 class="mbottom">Así lucirá tu publicación</h1>
+    <%= image_tag 'false.png', class: 'img-responsive img-center', id: 'preview' %>
+    <h4 id="mensaje-fb" class="mbottom"><%= "#{current_customer.entry.post} @ChivasDominicana" %></h4>
+
+
+    <%= image_submit_tag 'btn-publicar.png' %>
+    </div>
+  </div>
+
+
+</div>
+
+<% end %>
+
+<script type="text/javascript" charset="utf-8">
+    //<![CDATA[
+    //Wizard
+    $('#b-foto').click(function() {
+    $( "#foto" ).slideUp( "fast" ),
+    $( "#tag" ).slideDown( "fast" );
+    });
+
+    $('#b-tag').click(function() {
+    $( "#tag" ).slideUp( "fast" ),
+    $( "#post" ).slideDown( "fast" );
+    });
+
+    //Working with friends
+    //Id numericos
+    //Cuando hagan clic en un li,
+    //Obtener su id y crear el hidden con ese id y obteneiendo el valor del attr fb
+    $('ul#list_friend li').click(function() {
+        id = $(this).attr("id");
+        fb = $(this).attr("fb");
+
+        if ($(this).hasClass('active')){
+            $('input#friends[id]').remove();
+            $(this).removeClass('active');
+        } else  {
+            //Add input hidden for form
+            $('<input>').attr({
+            type: 'hidden',
+            id: 'friends['+id+']',
+            name: 'friends['+id+']',
+            value: fb
+            }).appendTo('#tag');
+            //Agregar clase activo al listado clikeado
+            $(this).addClass('active');
+            //Agregar Nombres a preview
+            $('<span>, '+ $(this).text()+'</span>').appendTo('#mensaje-fb');
+        }
+
+
+    });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#picture").change(function(){
+        readURL(this);
+    });
+
+    //]]>
+    </script>

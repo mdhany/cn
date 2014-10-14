@@ -1,0 +1,28 @@
+<div class="col-md-12">
+  <div id="edad">
+      <h1 class="text-hide"><%= image_tag 'tl-edad.png', class: 'img-responsive img-center' %>¿Eres Mayor de Edad?</h1>
+
+      <%= link_to "SI", "javascript:;", class: 'e-yes btn btn-lg' %>
+      <%= link_to "NO", "javascript:;", class: 'e-no btn btn-lg' %>
+  </div>
+  <div id="reto" style="display: none;">
+    <h1 class="text-hide"><%= image_tag 'tl-aceptas.png', class: 'img-responsive img-center' %>¿Aceptas el reto para ganarte uno de estos premios?</h1>
+    <%= image_tag 'spin-example.png', class: 'img-responsive img-center', id: 'spin' %>
+    <%= link_to "SI", login_facebook_path, class: 'btn btn-lg' %>
+    <%= link_to "NO", ruleta_path, class: 'btn btn-lg' %>
+  </div>
+</div>
+
+<%= javascript_tag do -%>
+    //Edad: Si
+    $('.e-yes').click(function() {
+        $( "#edad" ).slideUp( "fast" ),
+        $( "#reto" ).slideDown( "fast" );
+    });
+
+    //Edad: NO
+    $('.e-no').click(function() {
+        alert("Lo sentimos. Debes ser mayor de edad para participar.\n Gracias");
+    });
+
+<% end -%>

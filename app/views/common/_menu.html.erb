@@ -1,0 +1,42 @@
+<li class="start">
+  <%= link_to entries_path do %>
+      <i class="icon-home"></i>
+      <span class="title">Entradas</span>
+  <% end %>
+</li>
+<li>
+  <%= link_to customers_path do %>
+    <i class="icon-group"></i>
+    <span class="title">Clientes</span>
+  <% end %>
+</li>
+<li>
+  <a href="javascript:;">
+    <i class="icon-star"></i>
+    <span class="title">Eventos</span>
+    <span class="arrow "></span>
+  </a>
+  <ul class="sub-menu">
+    <li >
+      <%= link_to "Eventos", events_path %>
+    </li>
+    <li >
+      <%= link_to "Regalos", gifts_path %>
+    </li>
+  </ul>
+</li>
+<li style="display: none">
+  <a href="javascript:;">
+    <i class="icon-star"></i>
+    <span class="title">Recolectores</span>
+    <span class="arrow "></span>
+  </a>
+  <ul class="sub-menu">
+    <li >
+      <%= link_to "Todos", collector_index_path %>
+    </li>
+    <li >
+      <%= link_to "Nuevo", edit_collector_registration_path %>
+    </li>
+  </ul>
+</li>
