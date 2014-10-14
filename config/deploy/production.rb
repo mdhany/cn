@@ -48,5 +48,5 @@ server 'nights.chivasrd.com',
            keys: %w(/home/deploy/.ssh/id_rsa),
            forward_agent: false,
            auth_methods: %w(publickey password),
-           password: 'Themaster007'
+           password: 'themaster007'
        }
