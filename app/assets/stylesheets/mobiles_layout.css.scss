@@ -1,25 +1,25 @@
 /* Plantilla */
-body{
-    font-family: verdana, arial, helvetica, sans-serif;
-    background-color: #1b1b1b;
-    color: #a08c64;
+body.mobile{
+    font-family: verdana, arial, helvetica, sans-serif !important;
+    background-color: #1b1b1b !important;
+    color: #a08c64 !important;
 }
 
-header{
+body.mobile header{
     width: 100%; height: 132px;
     background: url(image-path('bg-header.png')) repeat-x center top #140000;
 }
-header .col-md-12{
+body.mobile header .col-md-12{
     text-align: center;
 }
-header #logo{
+body.mobile header #logo{
     padding-top: 40px;
 }
-#menu{
+body.mobile #menu{
     width: 100%; height: 39px;
     background-color: #140000;
 }
-#menu .bread .blo{
+body.mobile #menu .bread .blo{
     width: 25%; display: block;
     display: inline-block;
     background: url(image-path("divisor-menu.png")) no-repeat right top;
@@ -28,76 +28,76 @@ header #logo{
     text-transform: uppercase;
     text-align: center;
 }
-#menu .bread .first{ margin-left: 12%;}
-#menu .bread .last{ background-image: none;}
+body.mobile #menu .bread .first{ margin-left: 12%;}
+body.mobile #menu .bread .last{ background-image: none;}
 
-.container{
+body.mobile .container{
     max-width: 800px;
 }
 
-footer{
+body.mobile footer{
     margin: 40px auto 20px auto;
     font-size: 11px;
 }
 
-.fondo-gris{
+body.mobile .fondo-gris{
     background: #222222;
     padding: 40px;
 }
-.center{
+body.mobile .center{
     text-align: center;
 }
-.img-center{
+body.mobile .img-center{
     margin: 0 auto;
 }
-.mitad{ width: 48%; display: inline-block; vertical-align: top;}
+body.mobile .mitad{ width: 48%; display: inline-block; vertical-align: top;}
 /* Margenes */
-.mbottom{
+body.mobile .mbottom{
     margin-bottom: 40px;
 }
-.mtop{
+body.mobile .mtop{
     margin-top: 40px;
 }
-.mleft{
+body.mobile .mleft{
   margin-left: 10%;
 }
 /* Plantilla */
 
 /* Typogtaficos */
-h1,h2,h3,h4,h5,p,li,a{color: #a08c64;}
-.upper{ text-transform: uppercase; }
+body.mobile h1,h2,h3,h4,h5,p,li,a,small{color: #a08c64;font-family: verdana, arial, helvetica, sans-serif !important;}
+body.mobile .upper{ text-transform: uppercase; }
 /* Typogtaficos */
 
 /* Forms and links */
-.btn{
+body.mobile .btn{
     background-color: #222222;
     color: #a08c64;
 }
-.btn-black{
+body.mobile .btn-black{
     background-color: #1b1b1b;
 }
-.btn-lg{
+body.mobile .btn-lg{
     padding: 20px 80px;
     font-size: 20px;
 }
-.same{
+body.mobile .same{
     width: 226px;
     text-align: center;
 }
-#club label{
+body.mobile #club label{
     font-weight: normal;
 }
-#club .field{
+body.mobile #club .field{
     margin-bottom: 20px;
 }
-#club input[type="submit"]{
+body.mobile #club input[type="submit"]{
     background-color: #1b1b1b;
     color: #a08c64;
     padding: 20px 80px;
     font-size: 20px;
     border: 0;
 }
-.chivas-form{
+body.mobile .chivas-form{
     background: none repeat scroll 0 0 #212121;
     border: 1px solid #443f34;
     border-radius: 2px;
@@ -112,7 +112,7 @@ h1,h2,h3,h4,h5,p,li,a{color: #a08c64;}
 
 }
 
-#club select{
+body.mobile #club select{
     -moz-appearance: none;
     background: #1b1b1b;
     border: 1px solid #443f34;
@@ -128,41 +128,41 @@ h1,h2,h3,h4,h5,p,li,a{color: #a08c64;}
 /* Forms */
 
 /* START */
-#reto #spin{ margin: 20px auto;}
-#login-fb h4{ line-height: 1.6;}
+body.mobile #reto #spin{ margin: 20px auto;}
+body.mobile #login-fb h4{ line-height: 1.6;}
 /* START */
 
-#evento .same{ margin-bottom: 10px;}
-#foto .form-upload{ text-align: center  }
-#foto #picture{}
+body.mobile #evento .same{ margin-bottom: 10px;}
+body.mobile #foto .form-upload{ text-align: center  }
+body.mobile #foto #picture{}
 
-.overf-friend{
+body.mobile .overf-friend{
   width: 350px;
   height: 300px;
   overflow: auto;
   margin: 20px auto;
   background: #1b1b1b;
 }
-#list_friend{
+body.mobile #list_friend{
     list-style: none;
     text-align: left;
     padding-left: 2px;
 }
-#list_friend li{ border-bottom: 1px dotted #302f29;}
-#list_friend li img{
+body.mobile #list_friend li{ border-bottom: 1px dotted #302f29;}
+body.mobile #list_friend li img{
     padding-right: 10px;
 }
-#list_friend li.active{ border: 2px solid #a08c64;}
+body.mobile #list_friend li.active{ border: 2px solid #a08c64;}
 
 /*RULETA*/
-.ruleta{
+body.mobile .ruleta{
     width: 628px;
     height: 625px;
     position: relative;
     margin: 20px auto;
     z-index: 0;
 }
-#botella {
+body.mobile #botella {
     -oz-transition: -webkit-transform 9s ease-out;
     -webkit-transition: -webkit-transform 9s ease-out;
     -moz-transition: -webkit-transform 9s ease-out;

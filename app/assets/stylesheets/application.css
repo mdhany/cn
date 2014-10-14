@@ -21,6 +21,7 @@
  *= require "admin/green"
  *= require "admin/pages/login"
  *= require "gifts"
+ *= require "mobiles_layout"
  *= require_self
  */
 
