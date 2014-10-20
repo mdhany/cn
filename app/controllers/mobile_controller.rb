@@ -73,7 +73,7 @@ class MobileController < ApplicationController
         params[:friends].each_value do |f|
           @graph.put_object(img['id'], 'tags', :tag_uid => f )
         end
-        @graph.put_object(img['id'], 'tags', :tag_text => '@ChivasDominicana' )
+        #@graph.put_object(img['id'], 'tags', :tag_text => '@ChivasDominicana' )
     else
       redirect_to select_friend_path, notice: 'Por favor, vuelva a intentar.'
     end
