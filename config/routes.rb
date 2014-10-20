@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'collectors/event', to: 'collector#event', as: 'events_collector'
-  post 'collectors/event/edit', to: 'collector#edit_collector_event', as: 'edit_collector_event'
-  get 'collectors', to: 'collector#index', as: 'collector_index'
+  get 'collectors/event', to: 'collectors#event', as: 'events_collector'
+  post 'collectors/event/edit', to: 'collectors#edit_collector_event', as: 'edit_collector_event'
+  get 'collectors', to: 'collectors#index', as: 'collector_index'
 
   get 'start', to: 'mobile#start', as: 'start'
 
@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'ruleta', to: 'mobile#spin', as: 'ruleta'
 
   post 'save_gift', to: 'mobile#save_gift', as: 'save_gift'
+  get 'events/:event_id/gifts', to: 'gifts#generate_gifts', as: 'generate_gifts'
+  post 'events/creating_gifts', to: 'gifts#creating_gifts', as: 'creating_gifts'
 
   get 'club', to: 'mobile#club', as: 'club'
   get 'end', to: 'mobile#end', as: 'end'
@@ -28,8 +30,8 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :collectors
 
-
-  root 'mobile#start'
+  root 'mobile#social'
+  #root 'mobile#start'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

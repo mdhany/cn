@@ -1,5 +1,8 @@
-<h1>Entradas</h1>
 
+<h1>Usuarios Recolectores</h1>
+<%= link_to 'Crear Recolector', new_collector_registration_path, class: 'btn btn-lg gold' %>
+<br/>
+<br/>
 <div class="portlet box gold">
   <div class="portlet-title">
     <div class="caption">Datos</div>
@@ -14,31 +17,23 @@
     <div class="table-responsive">
       <table class="table table-hover">
   <thead>
-    <tr>
-      <th>Consumidor</th>
-      <th>Evento</th>
-      <th>Publicación</th>
-      <th>Regalo</th>
-      <th>Fecha</th>
-
-    </tr>
+  <tr>
+    <th>Email</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @entries.each do |entry| %>
+  <% @collectors.each do |c| %>
       <tr>
-        <td><%= entry.customer.name %></td>
-        <td><%= entry.event.name if nil? %></td>
-        <td><%= "#{entry.post} @ChivasDominicana" %></td>
-        <td><%= entry.gift %></td>
-        <td><%= entry.created_at.to_date %></td>
+        <td><%= c.email %></td>
+        <td><%= link_to 'Editar', edit_collector_registration_path %></td>
+        <td><%= link_to 'Eliminar', cancel_collector_registration_path %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
       </table>
     </div>
   </div>
 </div>
-
-<br>
 

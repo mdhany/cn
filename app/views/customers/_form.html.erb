@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label 'Nombres y Apellidos' %><br>
+    <%= f.label 'Nombres y Apellidos ' %><span class="red">*</span><br>
     <%= f.text_field :name, class: 'chivas-form' %>
   </div>
   <div class="field">
-    <%= f.label 'Fecha de Nacimiento' %><br>
-    <%= f.date_select :birth, class: 'chivas-form' %>
+    <%= f.label 'Fecha de Nacimiento' %><span class="red">*</span><br>
+    <%= f.date_select :birth, start_year: 1960, end_year: 1997, class: 'chivas-form' %>
   </div>
   <div class="field">
-    <%= f.label 'Cuidad' %><br>
+    <%= f.label 'Ciudad' %><br>
     <%= f.text_field :city, class: 'chivas-form' %>
   </div>
   <div class="field">
@@ -28,24 +28,38 @@
     <%= f.text_field :mobile, class: 'chivas-form' %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email %><span class="red">*</span><br>
     <%= f.text_field :email, class: 'chivas-form' %>
   </div>
   <div class="field">
-    <% options = ["Eventos Gastronómicos",
-                  "Eventos Sociales",
-                  "Fiestas o Conciertos",
-                  "Catas",
-                  "Torneos",
-                  "Club de Descuentos o Regalos"]  %>
-    <%#= f.label 'Le gustaría participar en (seleccionar todas las que apliquen):' %><br>
-    <%# options.each do |o| %>
-        <%#= f.check_box :customer, 'sas', {}, class: 'form-control' %>
-    <%# end %>
     <%= f.label 'Algunos de sus intereses:' %><br>
+    <input type="checkbox" value="Eventos Gastronómicos"> Eventos Gastronómicos<br>
+    <input type="checkbox" value="Eventos Sociales"> Eventos Sociales<br>
+    <input type="checkbox" value="Fiestas o Conciertos"> Fiestas o Conciertos <br/>
+    <input type="checkbox" value="Catas"> Catas<br/>
+    <input type="checkbox" value="Torneos"> Torneos<br/>
+    <input type="checkbox" value="Club de Descuentos o Regalos"> Club de Descuentos o Regalos<br/> <br/>
+
     <%= f.text_field :interest, class: 'chivas-form' %>
+
+
   </div>
   <div class="actions">
     <%= f.submit {[class: 'btn btn-lg btn-black']} %>
   </div>
 <% end %>
+
+<%= javascript_tag do -%>
+
+    $(document).ready(function(){
+    $checks = $(":checkbox");
+    $checks.on('click', function() {
+    var string = $checks.filter(":checked").map(function(i,v){
+    return this.value;
+    }).get().join(", ");
+    $('#customer_interest').val(string);
+    });
+    });
+
+
+<% end -%>

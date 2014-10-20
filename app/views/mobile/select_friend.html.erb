@@ -3,10 +3,11 @@
   <div id="foto">
     <%= image_tag 'step-2.png', class: 'img-responsive img-center' %>
     <div class="center-block fondo-gris">
-    <h1 class="mbottom">¡Muéstranos con quien brindas!</h1>
+    <h1 class="mbottom text-hide">¡Muéstranos con quien brindas!</h1>
+    <h1 class="mbottom">Take a Photo</h1>
     <div class="row">
       <div class="col-md-8 mleft form-upload mbottom">
-        <%= file_field_tag :picture, capture: "camera", accept: "image/*" %>
+        <%= file_field_tag :picture, capture: "camera", accept: "image/*", class: 'form-chivas' %>
       </div>
     </div>
       <div class="row">
@@ -20,19 +21,23 @@
   <div id="tag" style="display: none;">
     <%= image_tag 'step-2.png', class: 'img-responsive img-center' %>
     <div class="center-block fondo-gris">
-    <h1 class="mbottom">Tagea a tus amigos</h1>
+    <h1 class="mbottom text-hide">Tagea a tus amigos</h1>
+    <h1 class="mbottom">Tag your friends</h1>
       <p>Selecciona por lo menos a tres de tus amigos.</p>
+    <div id="hacker-list">
+
     <div class="overf-friend">
-    <ul id="list_friend">
+      <input class="search chivas-form" placeholder="Buscar Amigo" />
+    <ul id="list_friend" class="list">
       <% @friends.each_with_index do |f, i| %>
           <li id="friend<%= i %>" fb="<%= f['id'] %>">
             <%= image_tag f['picture']['data']['url'] %>
-            <span><%= f['name'] %></span>
+            <span class="nombre"><%= f['name'] %></span>
           </li>
       <% end %>
     </ul>
     </div>
-    <p>Continúa para que veas cómo quedará tu publicación</p>
+    </div>
     <%= link_to "javascript:;", id: 'b-tag' do %>
         <%= image_tag 'btn-continuar.png', class: 'img-responsive img-center' %>
     <% end %>
@@ -42,12 +47,14 @@
   <div id="post" style="display: none;">
     <%= image_tag 'step-3.png', class: 'img-responsive img-center' %>
     <div class="center-block fondo-gris">
-    <h1 class="mbottom">Así lucirá tu publicación</h1>
-    <%= image_tag 'false.png', class: 'img-responsive img-center', id: 'preview' %>
-    <h4 id="mensaje-fb" class="mbottom"><%= "#{current_customer.entry.post} @ChivasDominicana" %></h4>
+    <h1 class="mbottom text-hide">Así lucirá tu publicación</h1>
+    <h1 class="mbottom">Type your message</h1>
+    <%= image_tag 'false.png', class: 'img-responsive img-center mbottom', id: 'preview' %>
+      <%= text_field_tag :post, nil, class: 'chivas-form', placeholder: 'Type here text' %>
+    <h4 id="mensaje-fb" class="mbottom text-hide"><%= "{current_customer.entry.post} @ChivasDominicana" %></h4>
 
 
-    <%= image_submit_tag 'btn-publicar.png' %>
+    <%= image_submit_tag 'btn-sharefb.png' %>
     </div>
   </div>
 
@@ -112,6 +119,14 @@
     $("#picture").change(function(){
         readURL(this);
     });
+
+
+    //Search for Listing Friend
+    var options = {
+        valueNames: [ 'nombre' ]
+    };
+
+    var hackerList = new List('hacker-list', options);
 
     //]]>
     </script>

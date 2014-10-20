@@ -47,62 +47,18 @@
 
 .pagar{ margin-top: -200px;}
 
-/*************************/
-/* ROOMS == Inicio */
-/*************************/
-.room{}
-.room .cuadro{
-    /*Bordes redondeados*/
-    -webkit-border-radius:10px !important;/*Para chrome y Safari*/
-    -moz-border-radius:10px !important;/*Para Firefox*/
-    -o-border-radius:10px !important;/*Para Opera*/
-    border-radius:10px !important;/*El estandar por defecto*/
-
-    float: left;
-    height: 114px;
-    margin: 0 1% 1% 0;
-    text-align: center;
-
+.gold{
+    background-color:  #8a7d51;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color #8a7d51 #8a7d51;
+    border-image: none;
+    border: 1px solid #8a7d51;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
 }
-.basico .cuadro{
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#d0d0d0), to(#7e8784));/*Para chrome y Safari*/
-    /*Degradados*/
-    background-image: -moz-linear-gradient(top center, #d0d0d0, #7e8784);/*Para Firefox*/
-    background-image: -o-linear-gradient(top, #d0d0d0, #7e8784);/*Para Opera*/
-    background-image: linear-gradient(top, #d0d0d0, #7e8784);/*El estandar por defecto*/
+a.gold{ color: #ffffff; }
 
-    border: #b3edd0 solid 1px;
-}
-.superior .cuadro{
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#25ca66), to(#15a839));/*Para chrome y Safari*/
-    /*Degradados*/
-    background-image: -moz-linear-gradient(top center, #25ca66, #15a839);/*Para Firefox*/
-    background-image: -o-linear-gradient(top, #25ca66, #15a839);/*Para Opera*/
-    background-image: linear-gradient(top, #25ca66, #15a839);/*El estandar por defecto*/
-
-    border: #b3edd0 solid 1px;
-}
-
-.room .inactive{ background: #ededed !important; border: #c0c0c0;}
-.room .selected{ border: #ff0000 solid 3px;}
-
-.nivel1 .cuadro{
-    width: 24% ;
-}
-
-.nivel2 .cuadro{
-    width: 49% ;
-
-}
-.nivel3 .cuadro{
-    width: 99% ;
-}
-
-.basico h4{ font-weight: bolder !important; color: #000; margin-top: 40px; margin-bottom: 0; letter-spacing: -0.4pt;}
-.basico small{ color: #000;}
-.superior h4{ font-weight: bolder !important; color: #FFF; margin-top: 40px; margin-bottom: 0; letter-spacing: -0.4pt; text-shadow: 1px 1px 2px #000;}
-.superior small{ color: #fff; text-shadow: 1px 1px 2px #000;}
-/*************************/
-/* ROOMS == Final*/
-/*************************/
-
+.field{ margin-bottom: 10px;}

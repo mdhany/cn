@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!, only: [:index, :destroy, :create, :new]
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /customers
@@ -29,10 +29,14 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to end_path, notice: 'Customer was successfully created.' }
+        format.html { redirect_to end_path, notice: 'Sus datos fueron registrados exitosamente.' }
         format.json { render :show, status: :created, location: @customer }
+        session[:customer_id] = @customer.id
+        if @customer.create_entry!(event_id: current_collector.event_id, gift: 'Asignar', completed: true)
+          logger.debug "Entrada #{@customer.entry_id} creada"
+        end
       else
-        format.html { render :new }
+        format.html { redirect_to end_path, alert: 'No pudo ser guardado.' }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
@@ -45,6 +49,10 @@ class CustomersController < ApplicationController
       if @customer.update(customer_params)
         format.html { redirect_to end_path}
         format.json { render :show, status: :ok, location: @customer }
+
+        if @customer.entry.update_attribute :completed, true
+          logger.debug "Entrada #{@customer.entry_id} Actualizada"
+        end
       else
         format.html { render :edit }
         format.json { render json: @customer.errors, status: :unprocessable_entity }

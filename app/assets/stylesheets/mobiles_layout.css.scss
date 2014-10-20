@@ -31,6 +31,10 @@ body.mobile #menu .bread .blo{
 body.mobile #menu .bread .first{ margin-left: 12%;}
 body.mobile #menu .bread .last{ background-image: none;}
 
+body.mobile .contenido{
+  min-height: 580px;
+  background: url(image-path("bg-contenido.jpg")) no-repeat center top;
+}
 body.mobile .container{
     max-width: 800px;
 }
@@ -59,12 +63,20 @@ body.mobile .mtop{
     margin-top: 40px;
 }
 body.mobile .mleft{
-  margin-left: 10%;
+  margin-left: 20%;
 }
 /* Plantilla */
 
 /* Typogtaficos */
-body.mobile h1,h2,h3,h4,h5,p,li,a,small{color: #a08c64;font-family: verdana, arial, helvetica, sans-serif !important;}
+body.mobile h1,
+body.mobile h2,
+body.mobile h3,
+body.mobile h4,
+body.mobile h5,
+body.mobile p,
+body.mobile li,
+body.mobile a,
+body.mobile small{color: #a08c64;font-family: verdana, arial, helvetica, sans-serif;}
 body.mobile .upper{ text-transform: uppercase; }
 /* Typogtaficos */
 
@@ -108,7 +120,7 @@ body.mobile .chivas-form{
     max-width: 100%;
     outline: medium none;
     padding: 15px 4px;
-    width: 95%;
+    width: 100%;
 
 }
 
@@ -124,6 +136,15 @@ body.mobile #club select{
     text-overflow: "";
     color: white;
 }
+
+#club .red{ color: red}
+body.mobile input#picture{
+  display: block;
+  font-size: 16px;
+  width: 100%;
+  text-align: center ;
+}
+
 
 /* Forms */
 
@@ -163,9 +184,9 @@ body.mobile .ruleta{
     z-index: 0;
 }
 body.mobile #botella {
-    -oz-transition: -webkit-transform 9s ease-out;
+    -oz-transition: -oz-transform 9s ease-out;
     -webkit-transition: -webkit-transform 9s ease-out;
-    -moz-transition: -webkit-transform 9s ease-out;
+    -moz-transition: -moz-transform 9s ease-out;
     position: absolute;
     z-index: 10000;
     top: 71px;

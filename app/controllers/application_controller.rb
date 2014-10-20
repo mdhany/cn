@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+
   #layout 'admin'
   layout :layout_by_resource
 
@@ -24,13 +25,14 @@ class ApplicationController < ActionController::Base
 
   private
 
+
   def current_customer
     @current_customer ||= Customer.find(session[:customer_id]) if session[:customer_id]
   end
 
   protected
   def layout_by_resource
-    if devise_controller? && controller_name == 'sessions' && action_name == 'new' || controller_name == 'passwords' && action_name == 'new' || controller_name == 'collector' && action_name == 'event'
+    if devise_controller? && controller_name == 'sessions' && action_name == 'new' || controller_name == 'passwords' && action_name == 'new' || controller_name == 'collectors' && action_name == 'event'
       'login'
     elsif controller_name == 'mobile'
       'application'

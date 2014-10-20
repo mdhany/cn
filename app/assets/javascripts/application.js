@@ -22,6 +22,7 @@
 //= require jquery.cookie.min
 //= require uniform/jquery.uniform.min
 //= require admin/app
+//= require list
 //= require_self
 
 

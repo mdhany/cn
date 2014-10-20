@@ -1,20 +1,20 @@
-<p>
-  <strong>Nombre:</strong>
-  <%= @event.name %>
-</p>
+<h1> <%= @event.name %></h1>
+<hr/>
 
 <p>
   <strong>Lugar:</strong>
   <%= @event.place %>
-</p>
-
-<p>
+  |
   <strong>Fecha de Evento:</strong>
   <%= @event.d_event %>
 </p>
 
+<p>
 
-<div class="portlet box green">
+</p>
+
+
+<div class="portlet box gold">
   <div class="portlet-title">
     <div class="caption"><i class="icon-cogs"></i>Regalos para Evento</div>
     <div class="tools">
@@ -31,11 +31,11 @@
         <tr>
           <th>ID</th>
           <th>Nombre</th>
-          <th>Disponibles</th>
-          <th>Provistos</th>
-          <th>Posición</th>
+          <th>Presupuestados</th>
+          <th class="">Disponibles Actualmente</th>
 
-          <th colspan="3"></th>
+
+          <th colspan="1"></th>
         </tr>
         </thead>
         <tbody>
@@ -43,13 +43,9 @@
             <tr>
               <td><%= g.id %></td>
               <td><%= g.name %></td>
-              <td><%= g.inventory %></td>
               <td><%= g.predicted %></td>
-              <td><%= g.position %></td>
-
-              <td><%= link_to 'Ver', g %></td>
+              <td><%= g.inventory %></td>
               <td><%= link_to 'Editar', edit_gift_path(g) %></td>
-              <td><%= link_to 'Eliminar', g, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
        <% end %>
         </tbody>
@@ -57,7 +53,6 @@
     </div>
   </div>
 </div>
-<%= link_to 'Agregar Regalo', new_gift_path %>
 
 <hr/>
 

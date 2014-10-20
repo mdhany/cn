@@ -1,6 +1,7 @@
 class MobileController < ApplicationController
   before_action :authenticate_collector!
-  before_filter :api_graph, only: [:select_friend, :publishing_post]
+  before_filter :have_gifts_in_stock?
+  #before_filter :api_graph, only: [:select_friend, :publishing_post]
 
   def start
     destroy_session_customer
@@ -10,7 +11,7 @@ class MobileController < ApplicationController
 
   def social
     #Login at Facebook
-    @oauth = Koala::Facebook::OAuth.new(posting_url)
+    @oauth = Koala::Facebook::OAuth.new(select_friend_url)
     @aut_fb = @oauth.url_for_oauth_code(:permissions => "public_profile,email,publish_actions,user_friends,user_photos", :display => 'popup' )
 
   end
@@ -47,16 +48,27 @@ class MobileController < ApplicationController
   end
 
   def select_friend
+    #Para FAcebook REVIEW
+    @oauth = Koala::Facebook::OAuth.new(select_friend_url)
+    #Save session for token-fb
+    session[:token_fb] = @oauth.get_access_token(params[:code])
+    #Loading GraphAPI
+    @graph = Koala::Facebook::GraphAPI.new(session[:token_fb])
+    #Para FAcebook REVIEW
+
+
     @friends = @graph.get_connections("me", "taggable_friends")
   end
 
   def publishing_post
+    @graph = Koala::Facebook::GraphAPI.new(session[:token_fb])
     #Subir Imagen a server
     image = upload
     amigos = params[:friends]
     if image
       #Subir imagen  a FB
-        img = @graph.put_picture(params[:picture],  {:message => "#{current_customer.entry.post} #ChivasNights"}, 'ChivasDominicana')
+        #img = @graph.put_picture(params[:picture],  {:message => "#{current_customer.entry.post} @ChivasDominicana #ChivasNights"}, 'ChivasDominicana')
+        img = @graph.put_picture(params[:picture],  {:message => params[:post]}, 'ChivasDominicana')
       #Taguear Amigos
         params[:friends].each_value do |f|
           @graph.put_object(img['id'], 'tags', :tag_uid => f )
@@ -113,6 +125,14 @@ class MobileController < ApplicationController
   end
 
   protected
+  def have_gifts_in_stock?
+    if current_collector.event.gifts.in_stock.size > 0
+      true
+    else
+      render "mobile/no_gifts"
+    end
+  end
+
   def api_graph
   @graph = Koala::Facebook::GraphAPI.new(session[:token_fb])
   end

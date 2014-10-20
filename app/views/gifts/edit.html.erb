@@ -1,6 +1,7 @@
-<h1>Editing gift</h1>
+<h1>
+ Editando <%= @gift.name %>
+</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @gift %> |
-<%= link_to 'Back', gifts_path %>
+<hr/>
+<%= link_to 'Atras', :back %>

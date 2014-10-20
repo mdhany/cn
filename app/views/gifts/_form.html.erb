@@ -12,29 +12,36 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label 'Nombre' %><br>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :inventory %><br>
-    <%= f.number_field :inventory %>
+    <%= f.label 'Disponibles Actualmente' %><br>
+    <%= f.number_field :inventory, class: 'form-control'  %>
   </div>
   <div class="field">
-    <%= f.label :predicted %><br>
-    <%= f.number_field :predicted %>
+    <%= f.label 'Presupuestados' %><br>
+    <%= f.number_field :predicted, class: 'form-control'  %>
   </div>
+    <br/>
   <div class="field">
-    <%= f.label :priority %><br>
-    <%= f.number_field :priority %>
+
+    <%= f.label 'Prioridad' %><br>
+    <small>
+      0 = Es para regalos como el TIN</small>
+    <br/>
+      <small>1 = Es para los que aceptaron el reto</small>
+    <br/>
+    <small>2 = Regalos normales / Regulares</small>
+    <br/>
+    <small>3 = Regalos de salida alta</small>
+    <br/>
+    <br/>
+    <%#= f.number_field :priority, class: 'form-control'  %>
+    <%= f.select :priority, options_for_select([0, 1, 2, 3]), {}, class: 'form-control' %>
+
   </div>
-  <div class="field">
-    <%= f.label :event_id %><br>
-    <%= f.number_field :event_id %>
-  </div>
-    <div class="field">
-      <%= f.label :image %><br>
-      <%= f.text_field :image %>
-    </div>
+    <br/>
   <div class="actions">
     <%= f.submit %>
   </div>

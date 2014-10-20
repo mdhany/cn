@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.all.order('d_event DESC')
   end
 
   # GET /events/1
@@ -28,17 +28,15 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
 
-    respond_to do |format|
+
       if @event.save
-        if creating_gifts(@event.id)
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-        end
+        redirect_to generate_gifts_path(@event.id)
+        #format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        #format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PATCH/PUT /events/1
@@ -62,33 +60,6 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
-    end
-  end
-
-  def creating_gifts(event)
-    #Glasses
-    [10, 140, 205].each do |g|
-      Gift.create!([type_g: 0, name: 'Chivas Glasses', position: g, event_id: event, inventory: 0, predicted: 0, image: 'g-glasses.jpg'])
-    end
-    #Acceso a Fiestas Fin de Año
-    [30, 105, 185, 320].each do |g|
-      Gift.create!([type_g: 1, name: 'Acceso a Fiestas Fin de Año', position: g, event_id: event, inventory: 0, predicted: 0, image: 'g-fiestas.jpg'])
-    end
-    #Chivas 375 ml
-    [55, 250].each do |g|
-      Gift.create!([type_g: 2, name: 'Chivas 375 ml', position: g, event_id: event, inventory: 0, predicted: 0, image: 'g-ml.jpg'])
-    end
-    #Chivas Work Kit
-    [85, 160, 275].each do |g|
-      Gift.create!([type_g: 3, name: 'Chivas Work Kit', position: g, event_id: event, inventory: 0, predicted: 0, image: 'g-kit.jpg'])
-    end
-    #Chivas Catas
-    [340, 120, 225].each do |g|
-      Gift.create!([type_g: 4, name: 'Chivas Catas', position: g, event_id: event, inventory: 0, predicted: 0, image: 'g-catas.jpg'])
-    end
-    #Chivas 12 años Tin 750ml
-    [300].each do |g|
-      Gift.create!([type_g: 5, name: 'Chivas 12 años Tin 750ml', position: g, event_id: event, inventory: 0, predicted: 0, priority: -1, image: 'g-tin.jpg'])
     end
   end
 

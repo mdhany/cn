@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cn</title>
+  <title>Chivas Nights</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -37,8 +37,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 center">
-        <% if notice %>
-            <div class="alert alert-success"><button class="close" data-dismiss="alert"></button><%= notice %></div>
+        <% if alert %>
+            <div class="alert alert-success"><button class="close" data-dismiss="alert"></button><%= alert %></div>
         <% end %>
         <%= yield %>
       </div>
@@ -50,7 +50,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 center">
-        <p>Política de Pivacidad  |  Términos y Condiciones  |  Descargo</p>
+        <p><%= link_to 'Política de Pivacidad', 'http://www.chivas.com/es/do/footer-pages/privacy-policy' %>  |  <%= link_to 'Términos y Condiciones', 'http://www.chivas.com/es/do/footer-pages/terms-and-conditions' %>  |  <%= link_to 'Política de Cookies', 'http://www.chivas.com/es/do/footer-pages/cookie-policy' %></p>
         <br/>
         <small>
           El consumo de alcohol perjudica la salud. Ley 42-01. Disfruta Chivas Regal responsablemente. <br/>
@@ -58,7 +58,12 @@
 
         </small>
         <small>
-          <%= link_to("Salir", destroy_collector_session_path, method: :delete) %>
+          <%= link_to("Salir", destroy_collector_session_path, method: :delete) %> |
+          <% if current_customer %>
+              <%= link_to 'Reiniciar', "https://www.facebook.com/logout.php?next=#{root_url}&access_token=#{session[:token_fb]}" %>
+          <% else %>
+              <%= link_to 'Reiniciar', root_path %>
+          <% end %>
         </small>
       </div>
     </div>

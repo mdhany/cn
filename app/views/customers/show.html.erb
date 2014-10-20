@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Consumidor:</strong>
   <%= @customer.name %>
 </p>
 
 <p>
-  <strong>Birth:</strong>
+  <strong>Nacimiento:</strong>
   <%= @customer.birth %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong>Ciudad:</strong>
   <%= @customer.city %>
 </p>
 
 <p>
-  <strong>Mobile:</strong>
+  <strong>Móvil:</strong>
   <%= @customer.mobile %>
 </p>
 
@@ -26,13 +26,18 @@
 </p>
 
 <p>
-  <strong>Interest:</strong>
+  <strong>Intereses:</strong>
   <%= @customer.interest %>
 </p>
 
 <p>
-  <strong>Activity:</strong>
-  <%= @customer.entry_id %>
+  <strong>Evento de activación:</strong>
+  <%= @customer.entry.event.name %>
+</p>
+
+<p>
+  <strong>Fecha de activación:</strong>
+  <%= @customer.created_at %>
 </p>
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |

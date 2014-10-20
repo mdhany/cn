@@ -13,16 +13,20 @@
 
   <div class="field">
     <%= f.label 'Nombre' %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label 'Lugar' %><br>
-    <%= f.text_field :place %>
+    <%= f.text_field :place, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label 'Fecha de evento' %><br>
-    <%= f.date_select :d_event %>
+    <%= f.date_select :d_event, class: 'form-control' %>
+
   </div>
+
+
+
   <div class="actions">
     <%= f.submit 'Crear Evento', class: 'btn btn-lg' %>
   </div>

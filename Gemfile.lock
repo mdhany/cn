@@ -81,6 +81,8 @@ GEM
       addressable
       faraday
       multi_json
+    listjs-rails (1.1.1)
+      railties (>= 3.1.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -173,6 +175,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   koala (~> 1.10.0rc)
+  listjs-rails
   meta_request
   mysql2
   rails (= 4.1.0)
