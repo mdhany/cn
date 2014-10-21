@@ -28,7 +28,12 @@ Rails.application.routes.draw do
   resources :entries
   resources :customers
   devise_for :users
+  devise_scope :user do
+    get "acceder", to: "devise/sessions#new"
+  end
+
   devise_for :collectors
+
 
   root 'mobile#social'
   #root 'mobile#start'
