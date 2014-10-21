@@ -89,13 +89,23 @@ class MobileController < ApplicationController
   end
 
   def spin
-    #Habra un arras con todos los regalos, y se ejecutara un random entre ellos.
-    #Cuando salga debe ser debitado del historial
-    #Debe ser asignado a la entrada
-    gifts = nil
-    gifts = Gift.where(["event_id = ? and inventory > 0", current_collector.event_id])
+    if current_customer #Si participo y acepto el reto
+      g = Gift.where(["event_id = ? and inventory > ? and type_g IN (0,1,2,3,4,5)", current_collector.event_id, 0]).order('RAND()').sample
+
+      #Si el regalo sorteado, es TIN (5), y las entradas son menor a la condicion...
+      if g.type_g == 5 && current_collector.event.entries.completed.size < g.priority
+        #sortear nuevamente entre cualesquiera QUE NO sea TIN
+        g = Gift.where(["event_id = ? and inventory > ? and type_g IN (0,1,2,3,4)", current_collector.event_id, 0]).order('RAND()').sample
+      else #Si cumple con las condiciones para TIN / Si es cualquier otro. Then Desplegar
+        g
+      end
+      logger.debug "Este Customer ACEPTO RETO."
+    else #Si no aceptó el reto
+      g = Gift.where(["event_id = ? and inventory > ? and priority IN (1,2)", current_collector.event_id, 0]).order('RAND()').sample
+      logger.debug "Este Customer NO ACEPTO RETO"
+    end
     @win = nil
-    @win = gifts.sample
+    @win = g
   end
 
   def save_gift
@@ -103,9 +113,12 @@ class MobileController < ApplicationController
 
       #Restar el regalo ganado
       if gift.update_attribute :inventory, gift.inventory - 1
-        if current_customer.entry.update_attributes!(gift: gift.name, completed: true)
-          redirect_to club_path
+        if current_customer
+          current_customer.entry.update_attributes!(gift: gift.name, completed: true)
+        else
+          session[:gift] = gift.name
         end
+        redirect_to club_path
       else
         logger.debug "No pudo ser guargado el gift"
       end

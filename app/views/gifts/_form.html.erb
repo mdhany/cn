@@ -27,17 +27,16 @@
   <div class="field">
 
     <%= f.label 'Prioridad' %><br>
-    <small>
-      0 = Es para regalos como el TIN</small>
+    <small>1/x = Regalos de alto costo (1 Cada x cantidad)</small>
     <br/>
-      <small>1 = Es para los que aceptaron el reto</small>
+    <small>1 = Regulares</small>
     <br/>
-    <small>2 = Regalos normales / Regulares</small>
+    <small>2 = Regalos de salida alta</small>
     <br/>
-    <small>3 = Regalos de salida alta</small>
+
     <br/>
     <br/>
-    <%= f.select :priority, options_for_select([0, 1, 2, 3, ["1/6", 6], ["1/8", 8], ["1/10", 10], ["1/15", 15]]), {}, class: 'form-control' %>
+    <%= f.select :priority, options_for_select([1, 2, 3, ["1/6", 6], ["1/8", 8], ["1/10", 10], ["1/15", 15]]), {}, class: 'form-control' %>
 
   </div>
     <br/>

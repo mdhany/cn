@@ -28,8 +28,8 @@
     <% @entries.each do |entry| %>
       <tr>
         <td><%= entry.customer.name %></td>
-        <td><%= entry.event.name if nil? %></td>
-        <td><%= "#{entry.post} @ChivasDominicana" %></td>
+        <td><%= entry.event.name if !nil? %></td>
+        <td><%= "#{entry.post}" %></td>
         <td><%= entry.gift %></td>
         <td><%= entry.created_at.to_date %></td>
       </tr>

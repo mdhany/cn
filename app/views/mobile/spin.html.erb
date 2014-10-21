@@ -16,15 +16,9 @@
         <div class="mitad">
         <h1 class="mbottom">HAS GANADO</h1>
         <p class="mbottom"><%= @win.name %></p>
-        <% if current_customer %>
             <%= form_tag({action: :save_gift}) do %>
                 <%= hidden_field_tag :gift_id, @win.id %>
                 <%= image_submit_tag 'btn-continuar.png' %>
-            <% end %>
-        <% else %>
-            <%= link_to club_path do %>
-              <%= image_tag 'btn-continuar.png' %>
-            <% end %>
         <% end %>
         </div>
     </div>

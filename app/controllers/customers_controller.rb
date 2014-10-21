@@ -31,9 +31,8 @@ class CustomersController < ApplicationController
       if @customer.save
         format.html { redirect_to end_path, notice: 'Sus datos fueron registrados exitosamente.' }
         format.json { render :show, status: :created, location: @customer }
-        session[:customer_id] = @customer.id
-        if @customer.create_entry!(event_id: current_collector.event_id, gift: 'Asignar', completed: true)
-          logger.debug "Entrada #{@customer.entry_id} creada"
+        if @customer.create_entry!(event_id: current_collector.event_id, gift: session[:gift], completed: true)
+          logger.debug "Entrada #{session[:customer_id]} creada"
         end
       else
         format.html { redirect_to end_path, alert: 'No pudo ser guardado.' }
