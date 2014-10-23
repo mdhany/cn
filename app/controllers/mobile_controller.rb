@@ -1,7 +1,7 @@
 class MobileController < ApplicationController
   before_action :authenticate_collector!
   before_filter :have_gifts_in_stock?
-  #before_filter :api_graph, only: [:select_friend, :publishing_post]
+  before_filter :api_graph, only: [:select_friend, :publishing_post]
 
   def start
     destroy_session_customer
@@ -11,7 +11,8 @@ class MobileController < ApplicationController
 
   def social
     #Login at Facebook
-    @oauth = Koala::Facebook::OAuth.new(select_friend_url)
+    #@oauth = Koala::Facebook::OAuth.new(select_friend_url)
+    @oauth = Koala::Facebook::OAuth.new(posting_url)
     @aut_fb = @oauth.url_for_oauth_code(:permissions => "public_profile,email,publish_actions,user_friends,user_photos", :display => 'popup' )
 
   end
@@ -49,11 +50,11 @@ class MobileController < ApplicationController
 
   def select_friend
     #Para FAcebook REVIEW
-    @oauth = Koala::Facebook::OAuth.new(select_friend_url)
+    #@oauth = Koala::Facebook::OAuth.new(select_friend_url)
     #Save session for token-fb
-    session[:token_fb] = @oauth.get_access_token(params[:code])
+    #session[:token_fb] = @oauth.get_access_token(params[:code])
     #Loading GraphAPI
-    @graph = Koala::Facebook::GraphAPI.new(session[:token_fb])
+    #@graph = Koala::Facebook::GraphAPI.new(session[:token_fb])
     #Para FAcebook REVIEW
 
 
@@ -61,7 +62,8 @@ class MobileController < ApplicationController
   end
 
   def publishing_post
-    @graph = Koala::Facebook::GraphAPI.new(session[:token_fb])
+    #@graph = Koala::Facebook::GraphAPI.new(session[:token_fb])
+
     #Subir Imagen a server
     image = upload
     amigos = params[:friends]
