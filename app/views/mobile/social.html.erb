@@ -1,15 +1,38 @@
 <div id="login-fb" class="center-block fondo-gris">
   <h4>Antes de iniciar debes acceder <br/> a tu cuenta de Facebook</h4>
-  <%= link_to @aut_fb do %>
+  <%= link_to @aut_fb, id: 'lo-fb' do %>
+  <%#= link_to 'javascript:;', id: 'login-fb-btn', style: 'display:none;' do %>
       <%= image_tag 'btn-fb.png', class: 'img-responsive img-center', id: 'btn-fb' %>
   <% end %>
 
   <div class="clearfix">
 
   </div>
+  <div id="status">
+  </div>
   <div class="text-hide mbottom">..</div>
 
 </div>
+
+<script>
+    $(document).ready(function() {
+
+        function CloseAndRefresh()
+        {
+            opener.location.reload(true);
+            self.close();
+        }
+        //$('#lo-fb').click(function() {
+           //window.open("<%== @aut_fb %>", "_blank", "width=400, height=300");
+       // });
+
+        $('#lo-fb').click(function() {
+            //window.close();
+            //window.open('<%== @aut_fb %>', "_blank", "width=400, height=300");
+            CloseAndRefresh();
+        });
+    });
+</script>
 
 
 

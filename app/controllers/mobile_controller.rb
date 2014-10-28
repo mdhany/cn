@@ -1,7 +1,7 @@
 class MobileController < ApplicationController
   before_action :authenticate_collector!
   before_filter :have_gifts_in_stock?
-  before_filter :api_graph, only: [:select_friend, :publishing_post]
+  #before_filter :api_graph, only: [:select_friend, :publishing_post]
 
   def start
     destroy_session_customer
@@ -11,9 +11,17 @@ class MobileController < ApplicationController
 
   def social
     #Login at Facebook
-    #@oauth = Koala::Facebook::OAuth.new(select_friend_url)
-    @oauth = Koala::Facebook::OAuth.new(posting_url)
-    @aut_fb = @oauth.url_for_oauth_code(:permissions => "public_profile,email,publish_actions,user_friends,user_photos", :display => 'popup' )
+    @oauth = Koala::Facebook::OAuth.new(root_url)
+    if params[:code].nil?
+      #if params[:error] == 'access_denied'
+      #  flash.alert: 'You must to approve permissions for App'
+      #end
+      @aut_fb = @oauth.url_for_oauth_code(:permissions => "public_profile,email,user_friends", :display => 'touch', :auth_type => 'rerequest' )
+    else
+      #Save session for token-fb
+      session[:token_fb] = @oauth.get_access_token(params[:code])
+      redirect_to select_friend_path
+    end
 
   end
 
@@ -49,24 +57,23 @@ class MobileController < ApplicationController
   end
 
   def select_friend
-    #Para FAcebook REVIEW
-    #@oauth = Koala::Facebook::OAuth.new(select_friend_url)
-    #Save session for token-fb
-    #session[:token_fb] = @oauth.get_access_token(params[:code])
-    #Loading GraphAPI
-    #@graph = Koala::Facebook::GraphAPI.new(session[:token_fb])
-    #Para FAcebook REVIEW
+      #Loading GraphAPI
+      @graph = Koala::Facebook::GraphAPI.new(session[:token_fb])
+      #Para FAcebook REVIEW
+      @oauth = Koala::Facebook::OAuth.new(ruleta_url)
+      @urlfb = @oauth.url_for_oauth_code(:permissions => "publish_actions,user_photos", :display => 'popup', :auth_type => 'rerequest' )
 
+      @friends = @graph.get_connections("me", "taggable_friends")
 
-    @friends = @graph.get_connections("me", "taggable_friends")
   end
 
   def publishing_post
-    #@graph = Koala::Facebook::GraphAPI.new(session[:token_fb])
+    @graph = Koala::Facebook::GraphAPI.new(session[:token_fb])
+
 
     #Subir Imagen a server
     image = upload
-    amigos = params[:friends]
+    #amigos = params[:friends]
     if image
       #Subir imagen  a FB
         #img = @graph.put_picture(params[:picture],  {:message => "#{current_customer.entry.post} @ChivasDominicana #ChivasNights"}, 'ChivasDominicana')
@@ -80,7 +87,7 @@ class MobileController < ApplicationController
       redirect_to select_friend_path, notice: 'Por favor, vuelva a intentar.'
     end
 
-    redirect_to ruleta_path
+    redirect_to end_path
   end
 
   def upload
@@ -88,6 +95,7 @@ class MobileController < ApplicationController
     File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
       file.write(uploaded_io.read)
     end
+    #"http://#{request.host_with_port}/uploads/#{uploaded_io.original_filename}"
   end
 
   def spin
@@ -106,6 +114,7 @@ class MobileController < ApplicationController
       g = Gift.where(["event_id = ? and inventory > ? and priority IN (1,2)", current_collector.event_id, 0]).order('RAND()').sample
       logger.debug "Este Customer NO ACEPTO RETO"
     end
+    #@image = upload
     @win = nil
     @win = g
   end
