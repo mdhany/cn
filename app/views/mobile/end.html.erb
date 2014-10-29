@@ -5,7 +5,7 @@
     <div class="row">
         <p class="mbottom">Game is Over :)</p>
       <%# if current_customer %>
-        <%= link_to 'Reset', "https://www.facebook.com/logout.php?next=#{root_url}&access_token=#{session[:token_fb]}", class: 'btn btn-black btn-lg' %>
+        <%= link_to 'Log Out', "https://www.facebook.com/logout.php?next=#{root_url}&access_token=#{session[:token_fb]}", class: 'btn btn-black btn-lg' %>
       <%# else %>
         <%#= link_to 'Reiniciar', root_path, class: 'btn btn-black btn-lg' %>
     <%# end %>
