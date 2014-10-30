@@ -49,7 +49,7 @@
     <h1 class="mbottom text-hide">Así lucirá tu publicación</h1>
     <h1 class="mbottom">Type your message</h1>
     <%= image_tag 'false.png', class: 'img-responsive img-center mbottom', id: 'preview' %>
-    <%#= text_field_tag :post, nil, class: 'chivas-form', placeholder: 'Type here text' %>
+    <%= text_field_tag :post, nil, class: 'chivas-form', placeholder: 'Type here text' %>
     <h4 id="mensaje-fb2" class="mbottom" style="display: none;"><%= "{current_customer.entry.post} @ChivasDominicana" %></h4>
     <%= link_to 'javascript:;', id: '', style: 'display:none;' do %><%= image_tag 'btn-autorizar.png' %><% end %>
     <%= link_to 'javascript:;', id: 'perm-fb', class: 'button-facebook' do %>Authorize Facebook to share<% end %>
