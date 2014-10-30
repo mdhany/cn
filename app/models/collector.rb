@@ -5,4 +5,5 @@ class Collector < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :event
+  has_many :entries
 end

@@ -49,9 +49,10 @@
     <h1 class="mbottom text-hide">Así lucirá tu publicación</h1>
     <h1 class="mbottom">Type your message</h1>
     <%= image_tag 'false.png', class: 'img-responsive img-center mbottom', id: 'preview' %>
-    <%= text_field_tag :post, nil, class: 'chivas-form', placeholder: 'Type here text' %>
-    <h4 id="mensaje-fb" class="mbottom text-hide"><%= "{current_customer.entry.post} @ChivasDominicana" %></h4>
-    <%= link_to 'javascript:;', id: 'perm-fb' do %><%= image_tag 'btn-sharefb-en2.png' %><% end %>
+    <%#= text_field_tag :post, nil, class: 'chivas-form', placeholder: 'Type here text' %>
+    <h4 id="mensaje-fb2" class="mbottom" style="display: none;"><%= "{current_customer.entry.post} @ChivasDominicana" %></h4>
+    <%= link_to 'javascript:;', id: '', style: 'display:none;' do %><%= image_tag 'btn-autorizar.png' %><% end %>
+    <%= link_to 'javascript:;', id: 'perm-fb', class: 'button-facebook' do %>Authorize Facebook to share<% end %>
     <%= image_submit_tag 'btn-sharefb-en2.png', id: 'share-fb', style: 'display:none;' %>
 
     </div>
@@ -106,7 +107,7 @@
     $('#b-foto').click(function() {
         var im = $('#picture').val();
         if (im == ''){
-            alert('Debe tomar una foto antes de continuar. \n Please choose a photo');
+            alert('Please choose a photo from YOUR device\nDebe tomar una foto antes de continuar. ');
         } else {
             $( "#foto" ).slideUp( "fast" ),
             $( "#tag" ).slideDown( "fast" );
@@ -164,10 +165,7 @@
         $('#perm-fb').click(function() {
             permisions();
 
-            //Hide Buttom
-            $(this).hide('fast'),
-            //Show Submit buttom
-            $('#share-fb').show('fast');
+
         });
 
 
@@ -175,22 +173,30 @@
             FB.login(function (response) {
                 if (response.status === 'connected') {
                     // Logged into your app and Facebook.
-                    //console.log(response.authResponse.accessToken);
-                    //Cargar PHoto
                     console.log('Autorizando para publicar');
-                    //Taguear
-                    //Mensaje que diga que ha sido publicado por log y front
+                    console.log(response);
+                    if (response.authResponse.grantedScopes === 'public_profile,basic_info,email,contact_email,publish_actions,user_photos,user_friends') {
+                        console.log('Los permisos aceptados ' + response.authResponse.grantedScopes);
+                        //Hide Buttom
+                        $('#perm-fb').hide('fast'),
+                        //Show Submit buttom
+                        $('#share-fb').show('fast');
+                    } else {
+                        alert('You must accept all permissions requested for share your photo. Click in blue buttom again');
+                    }
 
                 } else {
                     // The person is not logged into Facebook, so we're not sure if
                     // they are logged into this app or not.
-                    console.log('Permisions not got it for Facebook or APP');
+                    console.log('Permisions not got it for Facebook or APP. Redirecting to Login');
+                    window.location.href = '<%= login_facebook_url %>'
                 }
-            }, {scope: 'publish_actions, user_photos'});
+            }, {scope: 'publish_actions, user_photos', auth_type: 'rerequest', return_scopes: true});
         }
 
 
     });
+
     //]]>
     </script>
 

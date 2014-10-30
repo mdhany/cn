@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013171557) do
+ActiveRecord::Schema.define(version: 20141029192609) do
 
   create_table "collectors", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20141013171557) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "event_id"
+    t.string   "name"
   end
 
   add_index "collectors", ["email"], name: "index_collectors_on_email", unique: true, using: :btree
@@ -53,7 +54,8 @@ ActiveRecord::Schema.define(version: 20141013171557) do
     t.string   "gift"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "completed",   default: false
+    t.boolean  "completed",    default: false
+    t.integer  "collector_id"
   end
 
   create_table "events", force: true do |t|

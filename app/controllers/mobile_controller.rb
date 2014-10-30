@@ -11,7 +11,7 @@ class MobileController < ApplicationController
 
   def social
     #Login at Facebook
-    @oauth = Koala::Facebook::OAuth.new(root_url)
+    @oauth = Koala::Facebook::OAuth.new(login_facebook_url)
     if params[:code].nil?
       #if params[:error] == 'access_denied'
       #  flash.alert: 'You must to approve permissions for App'
@@ -57,6 +57,7 @@ class MobileController < ApplicationController
   end
 
   def select_friend
+    if session[:token_fb]
       #Loading GraphAPI
       @graph = Koala::Facebook::GraphAPI.new(session[:token_fb])
       #Para FAcebook REVIEW
@@ -64,6 +65,9 @@ class MobileController < ApplicationController
       @urlfb = @oauth.url_for_oauth_code(:permissions => "publish_actions,user_photos", :display => 'popup', :auth_type => 'rerequest' )
 
       @friends = @graph.get_connections("me", "taggable_friends")
+    else
+      redirect_to login_facebook_path
+    end
 
   end
 
