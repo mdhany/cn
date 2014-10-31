@@ -28,7 +28,7 @@
   <tbody>
     <% @entries.each do |entry| %>
       <tr>
-        <td><%= entry.customer.name %></td>
+        <td><%= link_to entry.customer.name, customer_path(entry) %></td>
         <td><%= entry.event.name if !nil? %></td>
         <td><%= entry.collector.name if !nil? %></td>
         <td><%= "#{entry.post}" %></td>
