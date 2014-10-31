@@ -8,3 +8,7 @@ development:
 production:
   app_id: '837507736282505'
   secret_key: 'a9ebd394b195ba074b52c217bee7deb0'
+
+staging:
+  app_id: '837507736282505'
+  secret_key: 'a9ebd394b195ba074b52c217bee7deb0'
