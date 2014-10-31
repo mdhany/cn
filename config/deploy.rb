@@ -2,7 +2,7 @@
 lock '3.1.0'
 set :application, 'cn'
 set :repo_url, 'git@github.com:mdhany/cn.git'
-set :deploy_to, '/home/deploy/cn'
+#set :deploy_to, '/home/deploy/cn'
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 # Default branch is :master
