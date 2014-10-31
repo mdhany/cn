@@ -27,12 +27,24 @@ Rails.application.routes.draw do
   resources :gifts
   resources :entries
   resources :customers
+
+  #get 'collectors', to: 'collectors#index', as: 'collectors'
+  #get 'collectors/new', to: 'collectors#new', as: 'new_collector'
+  #get 'collectors/edit/:id', to: 'collectors#edit', as: 'edit_collector'
+  #post 'collectors/:id', to: 'collectors#create'
+  #post 'collectors/:id', to: 'collectors#update'
+  #put 'collectors/:id', to: 'collectors#update'
+
   devise_for :users
   devise_scope :user do
     get "acceder", to: "devise/sessions#new"
   end
 
   devise_for :collectors
+  #devise_scope :collectors do
+  #  get "sign_in" => "devise/sessions#new", :as => :logins_sign_in
+  #  get "collectors/new" => "devise/registrations#new", :as => :logins_referrals
+  #end
 
 
   #root 'mobile#social'
