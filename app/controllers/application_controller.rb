@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   def destroy_session_customer
     session[:customer_id] = nil
     session[:token_fb] = nil
+    session[:gift] = nil
   end
 
   def after_sign_in_path_for(resource)
@@ -42,6 +43,6 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:account_update) << :event_id
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:event_id, :name, :email, :password, :password_confirmation, :current_password) }
   end
 end
