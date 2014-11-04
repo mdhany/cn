@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'collectors/event', to: 'collectors#event', as: 'events_collector'
   post 'collectors/event/edit', to: 'collectors#edit_collector_event', as: 'edit_collector_event'
-  get 'collectors', to: 'collectors#index', as: 'collector_index'
+
 
   get 'start', to: 'mobile#start', as: 'start'
 
@@ -27,8 +27,9 @@ Rails.application.routes.draw do
   resources :gifts
   resources :entries
   resources :customers
+  resources :collectors
+  get 'collectors', to: 'collectors#index', as: 'collector_index'
 
-  #get 'collectors', to: 'collectors#index', as: 'collectors'
   #get 'collectors/new', to: 'collectors#new', as: 'new_collector'
   #get 'collectors/edit/:id', to: 'collectors#edit', as: 'edit_collector'
   #post 'collectors/:id', to: 'collectors#create'

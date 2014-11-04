@@ -65,6 +65,7 @@ class Devise::RegistrationsController < DeviseController
     else
       clean_up_passwords resource
       respond_with resource
+      #redirect_to collectors_path
     end
   end
 
