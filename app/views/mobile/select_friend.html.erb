@@ -3,8 +3,7 @@
   <div id="foto">
     <%= image_tag 'step-2.png', class: 'img-responsive img-center' %>
     <div class="center-block fondo-gris">
-    <h1 class="mbottom text-hide">¡Muéstranos con quien brindas!</h1>
-    <h1 class="mbottom">Take a Photo</h1>
+    <h1 class="mbottom">¡Muéstranos con quien brindas!</h1>
     <div class="row">
       <div class="col-md-8 mleft form-upload mbottom">
         <%= file_field_tag :picture, capture: "camera", accept: "image/*", class: 'form-chivas' %>
@@ -12,7 +11,7 @@
     </div>
       <div class="row">
         <%= link_to "javascript:;", id: 'b-foto' do %>
-            <%= image_tag 'btn-continuar-en.png', class: 'img-responsive img-center' %>
+            <%= image_tag 'btn-continuar.png', class: 'img-responsive img-center' %>
         <% end %>
       </div>
     </div>
@@ -21,8 +20,7 @@
   <div id="tag" style="display: none;">
     <%= image_tag 'step-2.png', class: 'img-responsive img-center' %>
     <div class="center-block fondo-gris">
-    <h1 class="mbottom text-hide">Tagea a tus amigos</h1>
-    <h1 class="mbottom">Tag your friends</h1>
+    <h1 class="mbottom">Tagea a tus amigos</h1>
       <p>Selecciona por lo menos a tres de tus amigos.</p>
     <div id="hacker-list">
         <div class="overf-friend">
@@ -38,7 +36,7 @@
         </div>
     </div>
         <%= link_to "javascript:;", id: 'b-tag' do %>
-            <%= image_tag 'btn-continuar-en.png', class: 'img-responsive img-center' %>
+            <%= image_tag 'btn-continuar.png', class: 'img-responsive img-center' %>
         <% end %>
     </div>
   </div>
@@ -46,14 +44,12 @@
   <div id="post" style="display: none;">
     <%= image_tag 'step-3.png', class: 'img-responsive img-center' %>
     <div class="center-block fondo-gris">
-    <h1 class="mbottom text-hide">Así lucirá tu publicación</h1>
-    <h1 class="mbottom">Type your message</h1>
+    <h1 class="mbottom">Así lucirá tu publicación</h1>
     <%= image_tag 'false.png', class: 'img-responsive img-center mbottom', id: 'preview' %>
-    <%= text_field_tag :post, nil, class: 'chivas-form', placeholder: 'Type here text' %>
-    <h4 id="mensaje-fb2" class="mbottom" style="display: none;"><%= "{current_customer.entry.post} @ChivasDominicana" %></h4>
-    <%= link_to 'javascript:;', id: '', style: 'display:none;' do %><%= image_tag 'btn-autorizar.png' %><% end %>
-    <%= link_to 'javascript:;', id: 'perm-fb', class: 'button-facebook' do %>Authorize Facebook to share<% end %>
-    <%= image_submit_tag 'btn-sharefb-en2.png', id: 'share-fb', style: 'display:none;' %>
+    <%#= text_field_tag :post, nil, class: 'chivas-form', placeholder: 'Type here text' %>
+    <h4 id="mensaje-fb" class="mbottom"><%= "#{current_customer.entry.post} @ChivasDominicana" %></h4>
+    <%= link_to 'javascript:;', id: 'perm-fb', class: 'button-facebook' do %>Autorizar a Facebook<% end %>
+    <%= image_submit_tag 'btn-sharefb.png', id: 'share-fb', style: 'display:none;' %>
 
     </div>
   </div>
@@ -182,7 +178,7 @@
                         //Show Submit buttom
                         $('#share-fb').show('fast');
                     } else {
-                        alert('You must accept all permissions requested for share your photo. Click in blue buttom again');
+                        alert('Debes aceptar todos los permisos solicitados. Click en el botón azúl otra vez.');
                     }
 
                 } else {
