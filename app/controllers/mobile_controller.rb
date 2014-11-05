@@ -16,7 +16,7 @@ class MobileController < ApplicationController
       #if params[:error] == 'access_denied'
       #  flash.alert: 'You must to approve permissions for App'
       #end
-      @aut_fb = @oauth.url_for_oauth_code(:permissions => "public_profile,email,user_friends", :display => 'touch', :auth_type => 'rerequest' )
+      @aut_fb = @oauth.url_for_oauth_code(:permissions => "public_profile,email,user_friends", :display => 'touch' )
     else
       #Save session for token-fb
       session[:token_fb] = @oauth.get_access_token(params[:code])
