@@ -21,6 +21,7 @@
       <th>Publicación</th>
       <th>Regalo</th>
       <th>Fecha</th>
+      <th colspan="2"></th>
 
     </tr>
   </thead>
@@ -34,6 +35,9 @@
         <td><%= "#{entry.post}" %></td>
         <td><%= entry.gift %></td>
         <td><%= entry.created_at.to_date %></td>
+        <% if current_user.email == "melvin@cspmconsulting.com" || "melvin.dani7@gmail.com" %>
+            <td><%= link_to 'Eliminar', entry, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

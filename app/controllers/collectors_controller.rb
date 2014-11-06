@@ -1,6 +1,6 @@
 class CollectorsController < ApplicationController
   #before_filter :authenticate_collector!
-  before_action :set_collector, only: [:show, :edit, :update]
+  #before_action :set_collector, only: [:show, :edit, :update]
 
 
   def event
@@ -20,16 +20,16 @@ class CollectorsController < ApplicationController
     @collectors = ::Collector::all
   end
 
-  def edit
-  end
+  #def edit
+  #end
 
-  def update
-      if @collector.update_attributes!(collector_params)
-        redirect_to collectors_path
-      else
-        render :edit
-      end
-  end
+  #def update
+  #    if @collector.update_attributes!(collector_params)
+  #      redirect_to collectors_path
+  #    else
+  #      render :edit
+  #    end
+  #end
 
 
   private

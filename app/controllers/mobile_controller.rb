@@ -1,6 +1,6 @@
 class MobileController < ApplicationController
   before_action :authenticate_collector!
-  before_action :have_gifts_in_stock?
+  before_filter :have_gifts_in_stock?
   #before_filter :api_graph, only: [:select_friend, :publishing_post]
 
   def start
@@ -118,6 +118,7 @@ class MobileController < ApplicationController
       g = Gift.where(["event_id = ? and inventory > ? and priority IN (1,2)", current_collector.event_id, 0]).order('RAND()').sample #current_collector.event_id
       logger.debug "Este Customer NO ACEPTO RETO"
     end
+
     @win = g
   end
 

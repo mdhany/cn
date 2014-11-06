@@ -1,13 +1,13 @@
 <div id="end">
-  <h1 class="mbottom text-hide ">¡Gracias por Participar!</h1>
-  <h1 class="mbottom">¡Done! Thanks for play</h1>
+  <h1 class="mbottom ">¡Gracias por Participar!</h1>
+  <h1 class="mbottom text-hide" style="display: none;">¡Done! Thanks for play</h1>
   <div class="center-block fondo-gris">
     <div class="row">
-        <p class="mbottom"  style="display: none;">Done :)</p>
+        <p class="mbottom"  style="display: none;">Listo :)</p>
       <% if current_customer %>
-        <%= link_to 'Reset', "https://www.facebook.com/logout.php?next=#{root_url}&access_token=#{session[:token_fb]}", class: 'btn btn-black btn-lg' %>
+        <%= link_to 'Reiniciar', "https://www.facebook.com/logout.php?next=#{root_url}&access_token=#{session[:token_fb]}", class: 'btn btn-black btn-lg' %>
       <% else %>
-        <%= link_to 'Reset', root_path, class: 'btn btn-black btn-lg' %>
+        <%= link_to 'Reiniciar', root_path, class: 'btn btn-black btn-lg' %>
       <% end %>
     </div>
     <div class="clearfix"></div>

@@ -47,10 +47,11 @@
     <%= image_tag 'step-3.png', class: 'img-responsive img-center' %>
     <div class="center-block fondo-gris">
     <h1 class="mbottom">Así lucirá tu publicación</h1>
+      <h1 class="mbottom text-hide" style="display: none;">Type your message</h1>
     <%= image_tag 'false.png', class: 'img-responsive img-center mbottom', id: 'preview' %>
-    <%= text_field_tag :post, nil, class: 'chivas-form', placeholder: 'Type here text' %>
-    <h4 id="mensaje-fb" class="mbottom" style="display: none;"><%= "{current_customer.entry.post} @ChivasDominicana" %></h4>
-    <%= link_to 'javascript:;', id: 'perm-fb', class: 'button-facebook' do %>Authorize Facebook<% end %>
+    <%#= text_field_tag :post, nil, class: 'chivas-form', placeholder: 'Type here text' %>
+    <h4 id="mensaje-fb" class="mbottom"><%= "#{current_customer.entry.post} @ChivasDominicana" %></h4>
+    <%= link_to 'javascript:;', id: 'perm-fb', class: 'button-facebook' do %>Autorizar Facebook<% end %>
     <%= image_submit_tag 'btn-sharefb-en2.png', id: 'share-fb', style: 'display:none;' %>
 
     </div>
