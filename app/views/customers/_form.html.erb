@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label 'Nombres y Apellidos ' %><span class="red">*</span><br>
-    <%= f.text_field :name, class: 'chivas-form' %>
+    <%= f.text_field :name, class: 'chivas-form', required: 'required' %>
   </div>
   <div class="field">
     <%= f.label 'Fecha de Nacimiento' %><span class="red">*</span><br>
-    <%= f.date_select :birth, start_year: 1960, end_year: 1997, class: 'chivas-form' %>
+    <%= f.date_select :birth, start_year: 1940, end_year: 1999, class: 'chivas-form' %>
   </div>
   <div class="field">
     <%= f.label 'Ciudad' %><br>
@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :email %><span class="red">*</span><br>
-    <%= f.text_field :email, class: 'chivas-form' %>
+    <%= f.text_field :email, class: 'chivas-form', required: 'required' %>
   </div>
   <div class="field">
     <%= f.label 'Algunos de sus intereses:' %><br>
