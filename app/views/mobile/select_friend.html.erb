@@ -106,7 +106,7 @@
     $('#b-foto').click(function() {
         var im = $('#picture').val();
         if (im == ''){
-            alert('Please choose a photo from YOUR device\nDebe tomar una foto antes de continuar. ');
+            alert('Debe tomar una foto antes de continuar. ');
         } else {
             $( "#foto" ).slideUp( "fast" ),
             $( "#tag" ).slideDown( "fast" );
@@ -114,8 +114,12 @@
     });
 
     $('#b-tag').click(function() {
-    $( "#tag" ).slideUp( "fast" ),
-    $( "#post" ).slideDown( "fast" );
+        if ($('#list_friend li').hasClass('active')) {
+            $("#tag").slideUp("fast"),
+            $("#post").slideDown("fast");
+        }else{
+            alert('Debe Tagear a uno de sus amigos para continuar ');
+        }
     });
 
 
