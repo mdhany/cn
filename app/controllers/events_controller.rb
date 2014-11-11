@@ -27,8 +27,6 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
-
       if @event.save
         redirect_to generate_gifts_path(@event.id)
         #format.html { redirect_to @event, notice: 'Event was successfully created.' }

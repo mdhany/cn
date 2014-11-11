@@ -1,7 +1,7 @@
 class Customer < ActiveRecord::Base
   has_one :entry
 
-  validate :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
   validate :birth, presence: true
 
   def self.get_customer(email)

@@ -4,9 +4,9 @@ class MobileController < ApplicationController
   #before_filter :api_graph, only: [:select_friend, :publishing_post]
 
   def start
-    destroy_session_customer
     #desconectar de fb
     #Limpiar las sesiones
+    destroy_session_customer
   end
 
   def social
@@ -20,8 +20,8 @@ class MobileController < ApplicationController
     else
       #Save session for token-fb
       session[:token_fb] = @oauth.get_access_token(params[:code])
-      #redirect_to posting_path
-      redirect_to select_friend_path
+      redirect_to posting_path
+      #redirect_to select_friend_path
     end
 
   end
@@ -78,19 +78,19 @@ class MobileController < ApplicationController
     #amigos = params[:friends]
     if image
       #Subir imagen  a FB
-        #img = @graph.put_picture(params[:picture],  {:message => "#{current_customer.entry.post} @ChivasDominicana #ChivasNights"}, 'ChivasDominicana')
-        img = @graph.put_picture(params[:picture],  {:message => params[:post]}, 'ChivasDominicana')
+        img = @graph.put_picture(params[:picture],  {:message => "#{current_customer.entry.post} @ChivasDominicana #ChivasNights"}, 'ChivasDominicana')
+        #img = @graph.put_picture(params[:picture],  {:message => params[:post]}, 'ChivasDominicana')
       #Taguear Amigos
         params[:friends].each_value do |f|
           @graph.put_object(img['id'], 'tags', :tag_uid => f )
         end
         #@graph.put_object(img['id'], 'tags', :tag_text => '@ChivasDominicana' )
-        #redirect_to ruleta_path
+        redirect_to ruleta_path
     else
       redirect_to select_friend_path, notice: 'Por favor, vuelva a intentar.'
     end
 
-    redirect_to end_path
+    #redirect_to end_path
 
   end
 
@@ -129,6 +129,7 @@ class MobileController < ApplicationController
       if gift.update_attribute :inventory, gift.inventory - 1
         if current_customer
           current_customer.entry.update_attributes!(gift: gift.name, completed: true)
+          logger.debug "Entrada Actualizada"
         else
           session[:gift] = gift.name
         end

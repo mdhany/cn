@@ -37,16 +37,8 @@
           <% else %>
               <span class='label label-sm label-success'>Disponible</span>
           <% end %>
-
-
-
-
         </td>
-        <% if event.gifts.in_stock.size == 0 %>
-            <td><%= link_to 'Regenerar Regalos', generate_gifts_path(event)%></td>
-        <% else %>
-            <td><%= link_to 'Ver Regalos', event %></td>
-        <% end %>
+        <td><%= link_to 'Ver Regalos', event %></td>
         <td><%= link_to 'Editar', edit_event_path(event) %></td>
         <td><%= link_to 'Eliminar', event, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
       </tr>

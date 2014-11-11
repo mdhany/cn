@@ -37,7 +37,7 @@ class CustomersController < ApplicationController
           @customer.update_attribute :entry_id, en.id
         end
       else
-        format.html { redirect_to end_path, alert: 'No pudo ser guardado.' }
+        format.html { redirect_to end_path, alert: 'Este email ya esta registrado.' }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
