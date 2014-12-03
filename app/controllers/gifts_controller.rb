@@ -95,7 +95,8 @@ class GiftsController < ApplicationController
         Gift.create!([type_g: 4, name: 'Chivas Catas', position: 120, event_id: params[:event_id], inventory: params[:gifts][:catas1], predicted: params[:gifts][:catas1], priority: 1, image: 'g-catas.jpg'])
         Gift.create!([type_g: 4, name: 'Chivas Catas', position: 225, event_id: params[:event_id], inventory: params[:gifts][:catas2], predicted: params[:gifts][:catas2], priority: 1, image: 'g-catas.jpg'])
       #Chivas 12 años Tin 750ml
-        Gift.create!([type_g: 5, name: 'Chivas 12 años Tin 750ml', position: 300, event_id: params[:event_id], inventory: params[:gifts][:tin], predicted: params[:gifts][:tin], priority: 1, image: 'g-tin.jpg'])
+      #por defecto esta Cada 6 jugadas
+        Gift.create!([type_g: 5, name: 'Chivas 12 años Tin 750ml', position: 300, event_id: params[:event_id], inventory: params[:gifts][:tin], predicted: params[:gifts][:tin], priority: 6, image: 'g-tin.jpg'])
 
       redirect_to event_path(params[:event_id]), notice: "Todos los regalos fueron creados"
     else

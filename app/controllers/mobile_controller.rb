@@ -126,6 +126,7 @@ class MobileController < ApplicationController
     gift = Gift.find params[:gift_id]
 
       #Restar el regalo ganado
+    if gift.inventory > 0
       if gift.update_attribute :inventory, gift.inventory - 1
         if current_customer
           current_customer.entry.update_attributes!(gift: gift.name, completed: true)
@@ -137,6 +138,10 @@ class MobileController < ApplicationController
       else
         logger.debug "No pudo ser guargado el gift"
       end
+    else
+      redirect_to ruleta_path, alert: 'Lo sentimos, Ya este regalo estaba reservado. ¡vuelve a intentar!'
+      logger.debug "ERROR: REGALO NO GUARDADO. Ya este regalo estaba reservado"
+    end
 
   end
 
