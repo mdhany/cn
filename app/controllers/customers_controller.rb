@@ -5,6 +5,7 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
+    Date::DATE_FORMATS[:latino] = '%d/%m/%Y'
     @customers = Customer.all
   end
 

@@ -29,7 +29,7 @@
     <% @customers.each do |customer| %>
       <tr>
         <td><%= customer.name %></td>
-        <td><%= customer.birth %></td>
+        <td><%= customer.birth.to_formatted_s(:latino) %></td>
         <td><%= customer.city %></td>
         <td><%= customer.mobile %></td>
         <td><%= customer.email %></td>
