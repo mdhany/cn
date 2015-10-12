@@ -1,5 +1,7 @@
 /*
 *= require "bootstrap/css/bootstrap.min"
+*= require "font-awesome/css/font-awesome.min"
+*= require "jquery.fancybox"
 *= require "mobiles_layout"
 *= require_self
 */

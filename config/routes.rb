@@ -1,51 +1,25 @@
 Rails.application.routes.draw do
 
-  get 'collectors/event', to: 'collectors#event', as: 'events_collector'
-  post 'collectors/event/edit', to: 'collectors#edit_collector_event', as: 'edit_collector_event'
-
 
   get 'start', to: 'mobile#start', as: 'start'
 
-  get 'login-facebook', to: 'mobile#social', as: 'login_facebook'
-  get 'posting', to: 'mobile#creating_post', as: 'posting'
+  post 'participate', to: 'mobile#participate', as: 'participate'
 
-  get 'ruleta', to: 'mobile#spin', as: 'ruleta'
-
-  post 'save_gift', to: 'mobile#save_gift', as: 'save_gift'
-  get 'events/:event_id/gifts', to: 'gifts#generate_gifts', as: 'generate_gifts'
-  post 'events/creating_gifts', to: 'gifts#creating_gifts', as: 'creating_gifts'
-
-  get 'club', to: 'mobile#club', as: 'club'
-  get 'end', to: 'mobile#end', as: 'end'
-
-  post 'select_activity', to: 'mobile#select_activity', as: 'select_activity'
-  get 'select_friend', to: 'mobile#select_friend', as: 'select_friend'
-  post 'publishing_post', to: 'mobile#publishing_post', as: 'publishing_post'
   post 'upload', to: 'mobile#upload', as: 'upload'
 
-  resources :events
   resources :gifts
-  resources :entries
   resources :customers
-  #resources :collectors
-  get 'collectors', to: 'collectors#index', as: 'collector_index'
+  resources :invoices
+  resources :winners
 
-  #get 'collectors/new', to: 'collectors#new', as: 'new_collector'
-  #get 'collectors/edit/:id', to: 'collectors#edit', as: 'edit_collector'
-  #post 'collectors/:id', to: 'collectors#create'
-  #post 'collectors/:id', to: 'collectors#update'
-  #put 'collectors/:id', to: 'collectors#update'
+
+  post 'startsort', to: 'winners#startsort', as: 'startsort'
+
 
   devise_for :users
   devise_scope :user do
     get "acceder", to: "devise/sessions#new"
   end
-
-  devise_for :collectors
-  #devise_scope :collectors do
-  #  get "sign_in" => "devise/sessions#new", :as => :logins_sign_in
-  #  get "collectors/new" => "devise/registrations#new", :as => :logins_referrals
-  #end
 
 
   #root 'mobile#social'

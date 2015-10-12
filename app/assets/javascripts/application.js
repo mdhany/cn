@@ -23,6 +23,9 @@
 //= require uniform/jquery.uniform.min
 //= require admin/app
 //= require list
+//= require grayscale
+//= require jquery.easing.min
+//= require jquery.fancybox.pack
 //= require_self
 
 

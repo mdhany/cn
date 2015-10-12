@@ -1,0 +1,56 @@
+<h1>Facturas</h1>
+
+<div class="portlet box green">
+  <div class="portlet-title">
+    <div class="caption">Total de facturas: <%= @invoices.count %></div>
+    <div class="tools">
+      <a class="collapse" href="javascript:;"></a>
+      <a class="config" data-toggle="modal" href="#portlet-config"></a>
+      <a class="reload" href="javascript:;"></a>
+      <a class="remove" href="javascript:;"></a>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Número</th>
+          <th>Foto</th>
+          <th>Consumidor</th>
+          <th>Creación</th>
+          <th>HA GANADO?</th>
+          <th colspan="3"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @invoices.each do |i| %>
+            <tr>
+              <td><%= i.number %></td>
+              <td><%= link_to  i.picture.url, class: 'fancybox'  do %>
+                    <i class="icon-picture"></i><small> Ver factura</small>
+                <% end %></td>
+              <td><%= link_to i.customer.name, customer_path(i.customer_id) %></td>
+
+              <td><small><%= i.created_at %></small></td>
+              <td><%= i.winner? ? 'Si': 'No' %></td>
+              <td><%= link_to 'Eliminar', i, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<%= javascript_tag do -%>
+
+
+    $(document).ready(function() {
+        $('.fancybox').fancybox();
+    }); // ready
+
+
+<% end -%>

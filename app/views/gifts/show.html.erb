@@ -8,22 +8,7 @@
   <%= @gift.inventory %>
 </p>
 
-<p>
-  <strong>Presupuestados:</strong>
-  <%= @gift.predicted %>
-</p>
-
-<p>
-  <strong>Prioridad:</strong>
-  <%= @gift.priority %>
-</p>
-
-<p>
-  <strong>Evento:</strong>
-  <%= @gift.event.name %>
-</p>
-
 
 
 <%= link_to 'Editar', edit_gift_path(@gift) %> |
-<%= link_to 'Volver a Evento', event_path(@gift.event) %>
+<%= link_to 'Volver atras', gifts_path %>

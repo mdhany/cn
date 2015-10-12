@@ -1,0 +1,31 @@
+<p>
+  <strong>Numero:</strong>
+  <%= @invoice.number %>
+</p>
+
+<p>
+  <strong>Foto:</strong><br/>
+  <%= image_tag @invoice.picture.url, width: 500 %>
+</p>
+
+
+<p>
+  <strong>Consumidor: </strong>
+  <%= @invoice.customer.name %>
+</p>
+
+
+
+<p>
+  <strong>HA GANADO?: </strong>
+  <%= @invoice.winner? %>
+</p>
+
+
+<p>
+  <strong>Fecha de activación:</strong>
+  <%= @invoice.created_at %>
+</p>
+
+<%#= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>

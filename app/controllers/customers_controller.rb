@@ -1,12 +1,12 @@
 class CustomersController < ApplicationController
-  #before_action :authenticate_user!, only: [:index, :destroy, :create, :new]
+  before_action :authenticate_user!
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /customers
   # GET /customers.json
   def index
     Date::DATE_FORMATS[:latino] = '%d/%m/%Y'
-    @customers = Customer.all
+    @customers = Customer.all.order(created_at: :desc)
   end
 
   # GET /customers/1
@@ -80,6 +80,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:name, :birth, :city, :mobile, :email, :interest, :entry_id)
+      params.require(:customer).permit(:name, :birth, :identification, :mobile, :email, :invoices)
     end
 end

@@ -18,7 +18,7 @@ role :db,  %w{deploy@nights.chivasrd.com}
 # something that quacks like a hash can be used to set
 # extended properties on the server.
 server 'nights.chivasrd.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
-set :deploy_to, '/home/deploy/cn'
+set :deploy_to, '/home/deploy/ctt'
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
@@ -41,13 +41,13 @@ set :deploy_to, '/home/deploy/cn'
 #     # password: 'please use keys'
 #   }
 # setting per server overrides global ssh_options
-server 'nights.chivasrd.com',
-       user: 'deploy',
-       roles: %w{web app},
-       ssh_options: {
-           user: 'deploy', # overrides user setting above
-           keys: %w(/home/deploy/.ssh/id_rsa),
-           forward_agent: false,
-           auth_methods: %w(publickey password),
-           password: 'themaster007'
-       }
+#server 'nights.chivasrd.com',
+#       user: 'deploy',
+#       roles: %w{web app},
+#       ssh_options: {
+#           user: 'deploy', # overrides user setting above
+#           keys: %w(/home/deploy/.ssh/id_rsa),
+#           forward_agent: false,
+#           auth_methods: %w(publickey password),
+#           password: 'themaster007'
+#       }

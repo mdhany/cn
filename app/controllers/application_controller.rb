@@ -17,11 +17,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if params.has_key?('collector')
-      events_collector_path
-    else
-      entries_path
-    end
+    customers_path
+
   end
 
   private
