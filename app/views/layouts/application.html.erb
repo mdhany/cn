@@ -63,10 +63,12 @@
         <small>
           <%= link_to("Salir", destroy_collector_session_path, method: :delete) %> |
           <% if current_customer %>
-              <%= link_to 'Reiniciar', "https://www.facebook.com/logout.php?next=#{root_url}&access_token=#{session[:token_fb]}" %>
+              <%= link_to 'Reiniciar | ', "https://www.facebook.com/logout.php?next=#{root_url}&access_token=#{session[:token_fb]}" %>
           <% else %>
-              <%= link_to 'Reiniciar', root_path %>
+              <%= link_to 'Reiniciar | ', root_path %>
           <% end %>
+          <%= link_to "Panel de Control | ", entries_path %>
+          <%= link_to "Cambiar de Evento", events_collector_path %>
         </small>
       </div>
     </div>

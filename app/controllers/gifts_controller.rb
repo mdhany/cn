@@ -87,7 +87,7 @@ class GiftsController < ApplicationController
       Gift.create!([type_g: 0, name: 'Selfie Stick', position: 30, event_id: params[:event_id], inventory: params[:gifts][:selfie1], predicted: params[:gifts][:selfie1], priority: 1, image: 'r-SelfieStick.jpg'])
       #Gift.create!([type_g: 0, name: 'Selfie Stick', position: 205, event_id: params[:event_id], inventory: params[:gifts][:selfie2], predicted: params[:gifts][:selfie2], priority: 1, image: 'r-SelfieStick.jpg'])
       
-      Gift.create!([type_g: 0, name: 'Earbuds', position: 220, event_id: params[:event_id], inventory: params[:gifts][:earbuds1], predicted: params[:gifts][:earbuds1], priority: 1, image: 'r-Earbuds.jpg'])
+      Gift.create!([type_g: 0, name: 'Audífonos Inalámbricos', position: 220, event_id: params[:event_id], inventory: params[:gifts][:earbuds1], predicted: params[:gifts][:earbuds1], priority: 1, image: 'r-Earbuds.jpg'])
       #Gift.create!([type_g: 0, name: 'Earbuds', position: 225, event_id: params[:event_id], inventory: params[:gifts][:earbuds2], predicted: params[:gifts][:earbuds2], priority: 1, image: 'r-Earbuds.jpg'])
       
       Gift.create!([type_g: 0, name: 'Posavasos', position: 330, event_id: params[:event_id], inventory: params[:gifts][:posavasos1], predicted: params[:gifts][:posavasos1], priority: 1, image: 'r-Posavasos.jpg'])
