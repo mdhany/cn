@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: cn_production
-  username: cn
+  database: cn_production_2017
+  username: deploy
   password: <%= ENV['CN_DATABASE_PASSWORD'] %>
