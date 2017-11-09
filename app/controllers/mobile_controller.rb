@@ -1,6 +1,7 @@
 class MobileController < ApplicationController
   before_action :authenticate_collector!
-  before_action :have_gifts_in_stock?, except: [:club, :end]
+  #before_action :have_gifts_in_stock?, except: [:club, :end]
+  before_action :have_gifts_in_stock?, except: [:club, :end, :no_customer_filled]
   #before_filter :api_graph, only: [:select_friend, :publishing_post]
 
   def start
@@ -151,6 +152,14 @@ class MobileController < ApplicationController
       @customer = Customer.find(current_customer)
     else
       @customer = Customer.new
+    end
+  end
+
+  def no_customer_filled
+    if request.post?
+      if Entry.create!(event_id: current_collector.event_id, gift: session[:gift], completed: true, collector_id: current_collector.id)
+        redirect_to end_path
+      end
     end
   end
 

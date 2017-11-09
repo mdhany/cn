@@ -28,8 +28,8 @@
   <tbody>
     <% @entries.each do |entry| %>
       <tr>
-        <% if entry.customer.blank? %>
-            <td></td>
+        <% if entry.customer.nil? %>
+            <td class="gris">SIN DATA</td>
         <% else %>
             <td><%= link_to entry.customer.name, customer_path(entry.customer) %></td>
         <% end %>
