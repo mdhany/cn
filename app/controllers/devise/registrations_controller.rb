@@ -22,7 +22,7 @@ class Devise::RegistrationsController < DeviseController
 
         if Rails.env.production?
           #Send Welcome Email
-          UserMailer.welcome(resource).deliver
+          #UserMailer.welcome(resource).deliver
         end
 
         #respond_with resource, location: after_sign_up_path_for(resource)
