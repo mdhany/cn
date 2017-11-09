@@ -1,4 +1,4 @@
-<h2>Acceder</h2>
+<h2>Acceder a <%= resource_name.to_s == 'collector' ? 'Promotora' : 'Supervisor' %></h2>
 <% logger.debug resource_name %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

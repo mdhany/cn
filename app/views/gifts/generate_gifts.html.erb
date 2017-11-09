@@ -3,63 +3,67 @@
 <%= form_tag({action: :creating_gifts}) do %>
 <h1>Generar Regalos</h1>
     <hr/>
-      <p>Inserte en cada regalo la cantidad disponible para este evento. Cada </p>
+      <p>Cada regalo tiene un campo que representa la posicion en la ruleta. Si tiene dos campos, es porque aparece dos veces en la ruleta. Etc. </p>
       <br/>
 <br/>
     <%= hidden_field_tag :event_id, params[:event_id] %>
   <div class="row">
-    <div class="col-md-6 field">
-      <%= label_tag 'Gorra' %><br>
+    <div class="col-md-3 field">
+      <%= label_tag 'Power Banks' %><br>
       <div class="row">
-        <div class="col-md-3"><%= number_field_tag 'gifts[gorra]',0, class: 'form-control' %></div>
-        <div class="col-md-3"><%= number_field_tag 'gifts[gorra1]',0, class: 'form-control' %></div>
+        <div class="col-md-6"><%= number_field_tag 'gifts[power1]',0, class: 'form-control' %></div>
+        
       </div>
     </div>
-    <div class="col-md-6 field">
-      <%= label_tag 'Chivas 12 años 50ml' %><br>
+    <div class="col-md-3 field">
+      <%= label_tag 'Tumblers' %><br>
       <div class="row">
-        <div class="col-md-3"><%= number_field_tag 'gifts[ml]',0, class: 'form-control' %></div>
-        <div class="col-md-3"><%= number_field_tag 'gifts[ml1]',0, class: 'form-control' %></div>
-        <div class="col-md-3"><%= number_field_tag 'gifts[ml2]',0, class: 'form-control' %></div>
+        <div class="col-md-6"><%= number_field_tag 'gifts[tumblers1]',0, class: 'form-control' %></div>
+
       </div>
     </div>
-      <div class="col-md-6 field">
+      <div class="col-md-3 field">
+        <%= label_tag 'Pocket Knife' %><br>
+        <div class="row">
+        <div class="col-md-6"><%= number_field_tag 'gifts[pocket1]',0, class: 'form-control' %></div>
+
+        </div>
+      </div>
+
+      <div class="col-md-3 field">
         <%= label_tag 'Selfie Stick' %><br>
         <div class="row">
-        <div class="col-md-3"><%= number_field_tag 'gifts[selfie]',0, class: 'form-control' %></div>
-        <div class="col-md-3"><%= number_field_tag 'gifts[selfie1]',0, class: 'form-control' %></div>
+          <div class="col-md-6"><%= number_field_tag 'gifts[selfie1]',0, class: 'form-control' %></div>
+          
         </div>
-      </div>
 
-      <div class="col-md-6 field">
-        <%= label_tag 'PowerBank' %><br>
+      </div>
+      <div class="col-md-3 field">
+        <%= label_tag 'Earbuds' %><br>
         <div class="row">
-          <div class="col-md-3"><%= number_field_tag 'gifts[power]',0, class: 'form-control' %></div>
-          <div class="col-md-3"><%= number_field_tag 'gifts[power1]',0, class: 'form-control' %></div>
+          <div class="col-md-6"><%= number_field_tag 'gifts[earbuds1]',0, class: 'form-control' %></div>
         </div>
 
       </div>
-      <div class="col-md-6 field">
-        <%= label_tag 'Travel Set' %><br>
+      <div class="col-md-3 field">
+        <%= label_tag 'Posavasos' %><br>
         <div class="row">
-          <div class="col-md-4"><%= number_field_tag 'gifts[travel]',0, class: 'form-control' %></div>
-          <div class="col-md-4"><%= number_field_tag 'gifts[travel1]',0, class: 'form-control' %></div>
+          <div class="col-md-6"><%= number_field_tag 'gifts[posavasos1]',0, class: 'form-control' %></div>
         </div>
-
       </div>
-      <div class="col-md-6 field">
-        <%= label_tag 'Speaker' %><br>
+      <div class="col-md-3 field">
+        <%= label_tag 'Gorras' %><br>
         <div class="row">
-          <div class="col-md-4"><%= number_field_tag 'gifts[speaker1]',0, class: 'form-control' %></div>
-          <div class="col-md-4"><%= number_field_tag 'gifts[speaker2]',0, class: 'form-control' %></div>
+          <div class="col-md-6"><%= number_field_tag 'gifts[gorras1]',0, class: 'form-control' %></div>
         </div>
-
       </div>
 
-  </div>
+  </div> <!-- ROW -->
+
       <div class="row">
           <div class="col-md-12 field">
-            <%= submit_tag 'Crear' %>
+            <br>
+            <%= submit_tag 'Crear', class: 'btn btn-lg' %>
           </div>
       </div>
 </div>

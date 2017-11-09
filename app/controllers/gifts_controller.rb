@@ -69,30 +69,35 @@ class GiftsController < ApplicationController
   def creating_gifts
     g = Event.find params[:event_id]
     if g.gifts.blank?
-      #Chivas Flask
-      Gift.create!([type_g: 0, name: 'Gorra', position: 10, event_id: params[:event_id], inventory: params[:gifts][:gorra], predicted: params[:gifts][:gorra], priority: 1, image: 'g-gorra.png'])
-      Gift.create!([type_g: 0, name: 'Gorra', position: 140, event_id: params[:event_id], inventory: params[:gifts][:gorra1], predicted: params[:gifts][:gorra1], priority: 1, image: 'g-gorra.png'])
-
-      Gift.create!([type_g: 5, name: 'Chivas 12 años 50ml', position: 120, event_id: params[:event_id], inventory: params[:gifts][:ml], predicted: params[:gifts][:ml], priority: 1, image: 'g-ml.jpg'])
-      Gift.create!([type_g: 5, name: 'Chivas 12 años 50ml', position: 250, event_id: params[:event_id], inventory: params[:gifts][:ml1], predicted: params[:gifts][:ml1], priority: 1, image: 'g-ml.jpg'])
-      Gift.create!([type_g: 5, name: 'Chivas 12 años 50ml', position: 320, event_id: params[:event_id], inventory: params[:gifts][:ml2], predicted: params[:gifts][:ml2], priority: 1, image: 'g-ml.jpg'])
 
       #type_g: 10 es para los regalos en blanco. Estos deben tener inventario para que funcionen correctamente
-        Gift.create!([type_g: 10, name: 'Regalo EN BLANCO', position: 85, event_id: params[:event_id], inventory: 1, predicted:  1, priority: 1])
-        Gift.create!([type_g: 10, name: 'Regalo EN BLANCO', position: 300, event_id: params[:event_id], inventory: 1, predicted:  1, priority: 1])
-        Gift.create!([type_g: 10, name: 'Regalo EN BLANCO', position: 185, event_id: params[:event_id], inventory: 1, predicted:  1, priority: 1])
+      #Gift.create!([type_g: 10, name: 'Regalo EN BLANCO', position: 300, event_id: params[:event_id], inventory: 10, predicted:  10, priority: 1])
+      #Gift.create!([type_g: 10, name: 'Regalo EN BLANCO', position: 120, event_id: params[:event_id], inventory: 10, predicted:  10, priority: 1])
 
-      Gift.create!([type_g: 1, name: 'Selfie Stick', position: 160, event_id: params[:event_id], inventory: params[:gifts][:selfie], predicted: params[:gifts][:selfie], priority: 1, image: 'g-selfie.png'])
-      Gift.create!([type_g: 1, name: 'Selfie Stick', position: 30, event_id: params[:event_id], inventory: params[:gifts][:selfie1], predicted:  params[:gifts][:selfie1], priority: 1, image: 'g-selfie.png'])
+      #Regalos normales
+      Gift.create!([type_g: 0, name: 'Power Banks', position: 170, event_id: params[:event_id], inventory: params[:gifts][:power1], predicted: params[:gifts][:power1], priority: 1, image: 'r-PowerBanks.jpg'])
+      #Gift.create!([type_g: 0, name: 'Power Banks', position: 140, event_id: params[:event_id], inventory: params[:gifts][:power2], predicted: params[:gifts][:power2], priority: 1, image: 'r-PowerBanks.jpg'])
 
-      Gift.create!([type_g: 2, name: 'PowerBank', position: 55, event_id: params[:event_id], inventory: params[:gifts][:power], predicted: params[:gifts][:power], priority: 1, image: 'g-power.png'])
-      Gift.create!([type_g: 2, name: 'PowerBank', position: 205, event_id: params[:event_id], inventory: params[:gifts][:power1], predicted: params[:gifts][:power1], priority: 1, image: 'g-power.png'])
+      Gift.create!([type_g: 0, name: 'Tumblers', position: 120, event_id: params[:event_id], inventory: params[:gifts][:tumblers1], predicted: params[:gifts][:tumblers1], priority: 1, image: 'r-Tumblers.jpg'])
+      #Gift.create!([type_g: 0, name: 'Tumblers', position: 160, event_id: params[:event_id], inventory: params[:gifts][:tumblers2], predicted: params[:gifts][:tumblers2], priority: 1, image: 'r-Tumblers.jpg'])
 
-      Gift.create!([type_g: 3, name: 'Travel Set', position: 105, event_id: params[:event_id], inventory: params[:gifts][:travel], predicted:  params[:gifts][:travel], priority: 1, image: 'g-travel.png'])
-      Gift.create!([type_g: 3, name: 'Travel Set', position: 225, event_id: params[:event_id], inventory: params[:gifts][:travel1], predicted: params[:gifts][:travel1], priority: 1, image: 'g-travel.png'])
+      Gift.create!([type_g: 0, name: 'Pocket Knife', position: 80, event_id: params[:event_id], inventory: params[:gifts][:pocket1], predicted: params[:gifts][:pocket1], priority: 1, image: 'r-PocketKnife.jpg'])
+      #Gift.create!([type_g: 0, name: 'Pocket Knife', position: 185, event_id: params[:event_id], inventory: params[:gifts][:pocket2], predicted: params[:gifts][:pocket2], priority: 1, image: 'r-PocketKnife.jpg'])
+      
+      Gift.create!([type_g: 0, name: 'Selfie Stick', position: 30, event_id: params[:event_id], inventory: params[:gifts][:selfie1], predicted: params[:gifts][:selfie1], priority: 1, image: 'r-SelfieStick.jpg'])
+      #Gift.create!([type_g: 0, name: 'Selfie Stick', position: 205, event_id: params[:event_id], inventory: params[:gifts][:selfie2], predicted: params[:gifts][:selfie2], priority: 1, image: 'r-SelfieStick.jpg'])
+      
+      Gift.create!([type_g: 0, name: 'Earbuds', position: 220, event_id: params[:event_id], inventory: params[:gifts][:earbuds1], predicted: params[:gifts][:earbuds1], priority: 1, image: 'r-Earbuds.jpg'])
+      #Gift.create!([type_g: 0, name: 'Earbuds', position: 225, event_id: params[:event_id], inventory: params[:gifts][:earbuds2], predicted: params[:gifts][:earbuds2], priority: 1, image: 'r-Earbuds.jpg'])
+      
+      Gift.create!([type_g: 0, name: 'Posavasos', position: 330, event_id: params[:event_id], inventory: params[:gifts][:posavasos1], predicted: params[:gifts][:posavasos1], priority: 1, image: 'r-Posavasos.jpg'])
+      #Gift.create!([type_g: 0, name: 'Posavasos', position: 250, event_id: params[:event_id], inventory: params[:gifts][:posavasos2], predicted: params[:gifts][:posavasos2], priority: 1, image: 'r-Posavasos.jpg'])
+      
+      Gift.create!([type_g: 0, name: 'Gorras', position: 270, event_id: params[:event_id], inventory: params[:gifts][:gorras1], predicted: params[:gifts][:gorras1], priority: 1, image: 'r-Gorra.jpg'])
+      #Gift.create!([type_g: 0, name: 'Gorras', position: 275, event_id: params[:event_id], inventory: params[:gifts][:gorras2], predicted: params[:gifts][:gorras2], priority: 1, image: 'r-Gorra.jpg'])
 
-      Gift.create!([type_g: 4, name: 'Speaker', position: 275, event_id: params[:event_id], inventory: params[:gifts][:speaker1], predicted: params[:gifts][:speaker1], priority: 1, image: 'g-speaker.png'])
-      Gift.create!([type_g: 4, name: 'Speaker', position: 340, event_id: params[:event_id], inventory: params[:gifts][:speaker2], predicted: params[:gifts][:speaker2], priority: 1, image: 'g-speaker.png'])
+
+
 
       redirect_to event_path(params[:event_id]), notice: "Todos los regalos fueron creados"
     else

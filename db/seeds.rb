@@ -12,5 +12,6 @@
 #User.create(email: 'melvin@cspmconsulting.com', password: 'cspm2014', password_confirmation: 'cspm2014')
 
 pass = '12345678'
-User.create!(email: 'melvin.dani7@gmail.com', password: pass, password_confirmation: pass)
-User.create!(email: 'kheilydis@cspmconsulting.com', password: pass, password_confirmation: pass)
+Collector.create!(name: 'CSPM Admin', email: 'cspm@chivasrd.com', password: pass, password_confirmation: pass)
+
+User.create!(email: 'cspm@chivasrd.com', password: pass, password_confirmation: pass)

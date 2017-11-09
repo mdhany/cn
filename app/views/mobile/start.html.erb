@@ -1,160 +1,36 @@
-<!-- Intro Header -->
-<header class="intro">
-  <div class="intro-body">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-6">
-          <h1 class="brand-heading">
-            <%= image_tag "logo-global.png", class: 'img-responsive' %></h1>
-          <p class="intro-text">Registra  aquí tu compra de Chivas Globe-Trotter <br />
-            y participa para ganar un viaje a Londres<br />
-            con un acompañante y muchos premios más.</p>
-
-          <p><small>Promoción válida hasta el 15 de enero del 2016</small></p>
-
-          <a href="#about" class="btn btn-circle page-scroll">
-            <i class="icon icon-double-angle-down animated"></i>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-</header>
-<div class="copyright">
-  <small>El consumo de alcohol perjudica la salud. Ley 42-01. Disfruta Chivas Regal responsablemente. CHIVAS REGAL® 12 Years Old Blended Scotch Whisky. 40% Alc./Vol. (80 Proof). © 2015 Pernod Ricard Dominicana, Santo Domingo, R.D.</small>
-</div>
-
-<!-- Mecanica Section -->
-<div class="mecanica">
-  <section id="about" class="container content-section text-center">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="text-hide">¡Participar es fácil!<%= image_tag "tl-pasos.png", class: 'img-responsive' %></h2>
+<div class="col-md-12">
+  <div id="edad">
+      <h1 class="text-hide"><%= image_tag 'tl-edad.png', class: 'img-responsive img-center' %>¿Tienes 18 años o más?</h1>
+        <p class="mbottom">Al participar aceptas nuestros términos y condiciones, así como nuestra política de privacidad</p>
         <div class="row">
-          <div class="col-lg-4">
-            <%= image_tag "step1.png", class: 'img-responsive' %>
-          </div>
-          <div class="col-lg-4">
-            <%= image_tag "step2.png", class: 'img-responsive' %>
-          </div>
-          <div class="col-lg-4">
-            <%= image_tag "step3.png", class: 'img-responsive' %>
-          </div>
+          <div class="col-xs-6 col-sm-offset-2 col-sm-4"><%= link_to "SI", "javascript:;", class: 'e-yes btn btn-lg btn-black' %></div>
+          <div class="col-xs-6 col-sm-2"><%= link_to "NO", "javascript:;", class: 'e-no btn btn-lg btn-black' %></div>
         </div>
-        <a href="#download"  class="page-scroll btn btn-default btn-lg">Regístrate</a>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- Registrase Section -->
-<div class="registrate">
-  <section id="download" class="content-section text-center">
-    <div class="download-section">
-      <div class="container">
-        <div class="col-md-6 col-lg-offset-3">
-          <h1>REGISTRO</h1>
-          <div class="formulario">
-            <%= form_tag({action: :participate}, multipart: true, remote: true) do %>
-              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-              <div class="form-group">
-                <%= text_field_tag :name, nil, class: 'form-control', placeholder: 'Nombre Completo', required: 'required' %>
-              </div>
-              <div class="form-group">
-                <div class="form-group">
-                  <%= number_field_tag :identification, nil, class: 'form-control', placeholder: "CEDULA", required: 'required' %>
-                </div>
-                <%= date_field_tag :birth, nil, class: 'form-control', placeholder: "Fecha de nacimiento: DD/MM/AAAA", required: 'required' %>
-
-                <%#= date_select :birth, nil, prompt: { day: 'Día', month: 'Mes', year: 'Año' }, use_month_numbers: true, order: [:day, :month, :year], start_year: 1930, end_year: 1999, class: 'form-control', required: 'required' %>
-              </div>
-              <div class="form-group">
-                <%= text_field_tag :mobile, nil, class: 'form-control', placeholder: "Telefono", required: 'required' %>
-              </div>
-              <div class="form-group">
-                <%= email_field_tag :email, nil, class: 'form-control', placeholder: "Email", required: 'required' %>
-
-                <br />
-                <h2>FACTURA</h2>
-                <div class="form-group">
-                  <%= number_field_tag :number, nil, class: 'form-control', placeholder: "Número de Factura", required: 'required' %>
-                </div>
-                <br />
-                <h4>Elige una foto de tu factura</h4>
-                <div class="form-group">
-                  <%= file_field_tag :picture, capture: "camera", accept: "image/*", class: 'form-chivas', required: 'required' %>
-                  <div class="form-group term"><input type="checkbox" required > <a class="page-scroll" href="#terminos">Acepto los Términos y Condiciones</a></div>
-                </div>
-                <div class="enviar">
-                  <%= submit_tag "ENVIAR DATOS", class: 'page-scroll btn btn-default btn-lg btnsend' %>
-                </div>
-            <% end %>
-
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<div id="inline" style="display:none; text-align:center;">
-  <br/>
-  <h1>¡FELICIDADES!</h1>
-  <h2>TU REGISTRO SE HA COMPLETADO EXITOSAMENTE</h2>
-  <p>Entérate si eres un ganador en nuestra página de facebook</p>
-  <p>
-  <a href="https://www.facebook.com/ChivasDominicana/" target="_blank" class="btn btn-dark btn-lg"><i class="fa fa-fb fa-fw"></i> <span class="network-name">facebook.com/ChivasDominicana</span></a>
-  </p>
-</div>
-
-<!-- TERMINOS Section -->
-<div class="terminos">
-  <section id="terminos" class="content-section text-center">
-    <div class="container">
-      <div class="col-md-6 col-lg-offset-3">
-        <p><%= image_tag "logo-gentlemen.png", class: 'img-responsive' %></p>
-
-        <h1>TÉRMINOS Y CONDICIONES</h1>
-        <div class="overflow">
-          <p>
-            Los términos y condiciones de la promoción aquí, Los términos y condiciones de la promoción aquí, Los términos y condiciones de la promoción aquí, Los términos y condiciones de la promoción aquí,Los términos y condiciones de la promoción aquí,Los términos y condiciones de la promoción aquí,Los términos y condiciones de la promoción aquí,Los términos y condiciones de la promoción aquí,Los términos y condiciones de la promoción aquí, Los términos y condiciones de la promoción aquíLos términos y condiciones de la promoción aquí Los términos y condiciones de la promoción aquíLos términos y condiciones de la promoción aquíLos términos y condiciones de la promoción aquí. Los términos y condiciones de la promoción aquíLos términos y condiciones de la promoción aquí. uí,Los términos y condiciones de la promoción aquí,Los términos y condiciones de la promoción aquí, Los términos y condiciones de la promoción aquí, Los términos y condiciones de la promoción aquíLos términos y condiciones de la promoción aquí Los términos y condiciones de.
-          </p>
-
-        </div>
-        <br/>
-        <a href="#download" class="page-scroll btn btn-lg btn-dark">ACEPTO</a>
-
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- Contact Section -->
-<section id="contact" class="container content-section text-center">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
-      <h1>GANADORES</h1>
-      <p>VIERNES 2 DE OCTUBRE</p>
-      <p>Ronald Araujo. Céd. 223-4325679-0 / Premio: Artículo promocional</p>
-      <p>Ronald Araujo. Céd. 223-4325679-0 / Premio: Artículo promocional</p>
-      <p>Ronald Araujo. Céd. 223-4325679-0 / Premio: Artículo promocional</p>
-
-    </div>
+      
+      <%#= link_to "SI", ruleta_path, class: 'btn btn-lg btn-black' %>
+      
   </div>
-</section>
+  <div id="reto" style="display: none;">
+    <h1 class="text-hide"><%= image_tag 'tl-aceptas.png', class: 'img-responsive img-center' %>¿Aceptas el reto para ganarte uno de estos premios?</h1>
+    <%= image_tag 'spin-example.png', class: 'img-responsive img-center', id: 'spin' %>
+    <div class="row">
+      <div class="col-xs-6 col-sm-offset-3 col-sm-3"><%= link_to "SI", ruleta_path, class: 'btn btn-lg' %></div>
+      <div class="col-xs-6 col-sm-2"><%= link_to "NO", ruleta_path, class: 'btn btn-lg' %></div>
+    </div>
+    
+  </div>
+</div>
+
 <%= javascript_tag do -%>
+    //Edad: Si
+    $('.e-yes').click(function() {
+        $( "#edad" ).slideUp( "fast" ),
+        $( "#reto" ).slideDown( "fast" );
+    });
 
-    var thisHash = window.location.hash;
-    $(document).ready(function() {
-    if(window.location.hash) {
-    $(thisHash).fancybox().trigger('click');
-    }
-    $('#inline').fancybox();
-    }); // ready
-
+    //Edad: NO
+    $('.e-no').click(function() {
+        alert("Lo sentimos. Debes ser mayor de edad para participar.\n Gracias");
+    });
 
 <% end -%>

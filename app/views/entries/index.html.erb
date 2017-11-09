@@ -18,7 +18,6 @@
       <th>Consumidor</th>
       <th>Evento</th>
       <th>Recolector</th>
-      <th>Publicación</th>
       <th>Regalo</th>
       <th>Fecha</th>
       <th colspan="2"></th>
@@ -36,7 +35,6 @@
         <% end %>
         <td><%= entry.event.name if !nil? %></td>
         <td><%= entry.collector.name if !nil? %></td>
-        <td><%= "#{entry.post}" %></td>
         <td><%= entry.gift %></td>
         <td><%= entry.created_at.to_date %></td>
         <% if current_user.email == "melvin@cspmconsulting.com" %>

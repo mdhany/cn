@@ -1,5 +1,5 @@
 class Customer < ActiveRecord::Base
-  has_many :invoices
+  has_one :entry
 
   validates :email, presence: true, uniqueness: true
   validate :birth, presence: true

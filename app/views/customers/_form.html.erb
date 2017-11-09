@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label 'Fecha de Nacimiento' %><span class="red">*</span><br>
-    <%= f.date_select :birth, include_blank: true, start_year: 1940, end_year: 1999, class: 'chivas-form' %>
+    <%= f.date_select :birth, prompt: { day: 'Día', month: 'Mes', year: 'Año' }, start_year: 1940, end_year: 1999, class: 'chivas-form' %>
   </div>
   <div class="field">
     <%= f.label 'Ciudad' %><br>
@@ -32,13 +32,15 @@
     <%= f.email_field :email, class: 'chivas-form', required: 'required' %>
   </div>
   <div class="field">
-    <%= f.label 'Algunos de sus intereses:' %><br>
-    <input type="checkbox" value="Eventos Gastronómicos"> Eventos Gastronómicos<br>
-    <input type="checkbox" value="Eventos Sociales"> Eventos Sociales<br>
-    <input type="checkbox" value="Fiestas o Conciertos"> Fiestas o Conciertos <br/>
-    <input type="checkbox" value="Catas"> Catas<br/>
-    <input type="checkbox" value="Torneos"> Torneos<br/>
-    <input type="checkbox" value="Club de Descuentos o Regalos"> Club de Descuentos o Regalos<br/> <br/>
+  <%= f.label 'Algunos de sus intereses:' %><br>
+    <div class="checkes">
+        <input type="checkbox" value="Eventos Gastronómicos" id="i1"> <label for="i1">Eventos Gastronómicos</label><br>
+        <input type="checkbox" value="Eventos Sociales" id="i2"><label for="i2">Eventos Sociales</label><br>
+        <input type="checkbox" value="Fiestas o Conciertos" id="i3"><label for="i3">Fiestas o Conciertos</label> <br/>
+        <input type="checkbox" value="Catas" id="i4"> <label for="i4">Catas</label><br/>
+        <input type="checkbox" value="Torneos" id="i5"> <label for="i5">Torneos</label><br/>
+        <input type="checkbox" value="Club de Descuentos o Regalos" id="i6"> <label for="i6">Club de Descuentos o Regalos</label><br/> <br/>
+    </div>
 
     <%= f.text_field :interest, class: 'chivas-form' %>
 
