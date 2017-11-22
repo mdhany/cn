@@ -61,4 +61,20 @@
 }
 a.gold{ color: #ffffff; }
 
+table.contador {
+    counter-reset: rowNumber;
+}
+
+table.contador tr:not(:first-child) {
+    counter-increment: rowNumber;
+}
+
+table.contador tr td:first-child::before {
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+}
+
+
+
 .field{ margin-bottom: 10px;}
