@@ -1,6 +1,6 @@
 <div id="ru">
 <h1 class="mbottom text-hide"><%= image_tag 'tl-giraygana.png' %>¡Gira y Gana!</h1>
-  <p>Gira la botella presionándola</p>
+  <p style="margin-top:-15px;">Gira la botella presionándola</p>
 <div class="ruleta">
   <%= image_tag 'bottle.png', id: 'botella' %>
   <%= image_tag 'ruleta-hexa.png', id: 'ruleta' %>
@@ -18,10 +18,10 @@
       <h1 class="mbottom text-hide"><%= image_tag 'tl-felicidades.png' %>¡Felicidades!</h1>
       <div class="center-block fondo-gris">
         <div class="row">
-            <div class="mitad"><%= image_tag "#{@win.image}", width: 550, class: 'img-responsive img-left' %></div>
+            <div class="mitad"><%= image_tag "regalos/#{@win.image}", width: 550, class: 'img-responsive img-left' %></div>
             <div class="mitad">
             <h1 class="mbottom">HAS GANADO</h1>
-            <h3 class="mbottom"><%= @win.name %></h3>
+            <p class="mbottom"><%= @win.name %></p>
                 <%= form_tag({action: :save_gift}) do %>
                     <%= hidden_field_tag :gift_id, @win.id %>
                     <%= image_submit_tag 'btn-continuar.png' %>

@@ -34,7 +34,12 @@
         <% end %>
         <td><%= entry.event.name if !nil? %></td>
         <td><%= entry.collector.name if !nil? %></td>
-        <td><%= entry.gift %></td>
+        <% if entry.gift.nil? %>
+            <td class="gris">Sin Regalo</td>
+        <% else %>
+            <td><%= entry.gift %></td>
+        <% end %>
+        
         <td><%= entry.created_at.to_date %></td>
         <% if current_user.email == "melvin@cspmconsulting.com" %>
             <td><%= link_to 'Eliminar', entry, method: :delete, data: { confirm: 'Estas seguro?' } %></td>

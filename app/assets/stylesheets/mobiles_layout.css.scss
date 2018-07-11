@@ -1,12 +1,29 @@
+@font-face {
+  font-family: 'ChivasPrioriBold';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/assets/ChivasPrioriBold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'ChivasPrioriRegular';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/assets/ChivasPrioriRegular.woff) format('woff');
+}
+
+
+
 /* Plantilla */
 body.mobile{
-    font-family: verdana, arial, helvetica, sans-serif !important;
-    background-color: #33181f !important;
+    font-family: "ChivasPrioriRegular", arial, helvetica, sans-serif !important;
+    background: url(image-path("bg-front.jpg")) no-repeat center top fixed;
+    background-size: cover;
     color: #fff !important;
 }
 
 body.mobile header{
-    width: 100%; height: 132px;
+    width: 100%; height: 152px;
     /*background: url(image-path('bg-header.png')) repeat-x center top #140000; */
 }
 body.mobile header .col-md-12{
@@ -17,7 +34,9 @@ body.mobile header #logo{
 }
 body.mobile #menu{
     width: 100%; height: 39px;
-    background-color: #572932;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
 }
 body.mobile #menu .bread .blo{
     width: 25%; display: block;
@@ -25,6 +44,7 @@ body.mobile #menu .bread .blo{
     background: url(image-path("divisor-menu.png")) no-repeat right top;
     padding-top: 8px;
     height: 39px;
+    font-size: 16px;
     text-transform: uppercase;
     text-align: center;
 }
@@ -33,7 +53,6 @@ body.mobile #menu .bread .last{ background-image: none;}
 
 body.mobile .contenido{
   min-height: 580px;
-  background: url(image-path("bg-contenido.jpg")) no-repeat center top;
 }
 body.mobile .container{
     max-width: 800px;
@@ -44,8 +63,13 @@ body.mobile footer{
     font-size: 11px;
 }
 
+body.mobile footer p, body.mobile footer small{
+  font-size: 16px;
+}
+
 body.mobile .fondo-gris{
-    background: #572932;
+    background-color: rgba(0, 0, 0, 0.3);
+    border:  1px solid white;
     padding: 40px;
 }
 body.mobile .center{
@@ -76,17 +100,21 @@ body.mobile h5,
 body.mobile p,
 body.mobile li,
 body.mobile a,
-body.mobile small{color: #fff;font-family: verdana, arial, helvetica, sans-serif;}
+body.mobile small{color: #fff;font-family: "ChivasPrioriRegular", arial, helvetica, sans-serif !important;}
 body.mobile .upper{ text-transform: uppercase; }
+body.mobile p{ font-size: 20px;}
 /* Typogtaficos */
 
 /* Forms and links */
 body.mobile .btn{
     background-color: #572932;
     color: #fff;
+    font-family: "ChivasPrioriBold";
+
 }
 body.mobile .btn-black{
-  background-color: #572932;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid white;
 }
 
 body.mobile .btn-end{
@@ -94,8 +122,8 @@ body.mobile .btn-end{
   border: 1px solid #896e4c;
 }
 body.mobile .btn-lg{
-    padding: 20px 60px;
-    font-size: 20px;
+    padding: 5px 40px 0px;
+    font-size: 40px;
 }
 body.mobile .same{
     width: 226px;
@@ -103,25 +131,32 @@ body.mobile .same{
 }
 body.mobile #club label{
     font-weight: normal;
+    font-size: 18px;
 }
 body.mobile #club .field{
     margin-bottom: 20px;
 }
 body.mobile #club input[type="submit"]{
-      background: #33181f;
-  border: 1px solid #896e4c;
-    color: #a08c64;
-    padding: 20px 80px;
-    font-size: 20px;
-
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid white;
+    color: #fff;
+    padding: 5px 40px 0px;
+    font-size: 40px;
 }
+
+body.mobile #club .btn-secundario{
+  font-size: 18px;
+  padding: 5px;
+}
+
 body.mobile .chivas-form{
-    background: none repeat scroll 0 0 #33181f;
-    border: 1px solid #896e4c;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #fff;
     border-radius: 2px;
     color: #fff;
     display: block;
-    font: 16px "Chivas",Verdana,Arial,sans-serif;
+    font-size: 18px;
+    font-family: "ChivasPrioriRegular", arial, helvetica, sans-serif !important;
     margin: 0 0 20px;
     max-width: 100%;
     outline: medium none;
@@ -132,8 +167,8 @@ body.mobile .chivas-form{
 
 body.mobile #club select{
     -moz-appearance: none;
-    background: #33181f;
-    border: 1px solid #896e4c;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #fff;
     box-sizing: border-box;
     height: 42px;
     min-width: 140px;
@@ -166,8 +201,8 @@ body.mobile #club .checkes label:before {
   position: absolute;
   left: 0;
   bottom: 3px;
-  background: #33181f;
-  border: 1px solid #896e4c;
+  background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #fff;
   }
 
 body.mobile #club .checkes input[type=checkbox]:checked + label:before {

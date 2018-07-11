@@ -8,7 +8,7 @@
       <% if current_customer %>
         <%= link_to 'Reiniciar', "https://www.facebook.com/logout.php?next=#{root_url}&access_token=#{session[:token_fb]}", class: 'btn btn-end btn-lg' %>
       <% else %>
-        <%= link_to 'Reiniciar', root_path, class: 'btn btn-end btn-lg' %>
+        <%= link_to 'Reiniciar', root_path, class: 'btn btn-black btn-lg' %>
       <% end %>
     </div>
     <div class="clearfix"></div>

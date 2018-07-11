@@ -22,3 +22,11 @@
   font-weight: 700;
   src: local('Open Sans Bold'), local('OpenSans-Bold'), url(k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff) format('woff');
 }
+
+@font-face {
+  font-family: 'ChivasPrioriBold';
+  font-style: normal;
+  font-weight: 700;
+  src: local('ChivasPrioriBold'), local('ChivasPrioriBold'), url(ChivasPrioriBold.woff) format('woff');
+}
+
