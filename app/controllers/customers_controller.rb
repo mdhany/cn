@@ -6,7 +6,8 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     Date::DATE_FORMATS[:latino] = '%d/%m/%Y'
-    @customers = Customer.all
+    @customers = Customer.where("YEAR(created_at) = 2018").order('created_at DESC')
+    @customers_17 = Customer.where("YEAR(created_at) = 2017").order('created_at DESC')
   end
 
   # GET /customers/1
