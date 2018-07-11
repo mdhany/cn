@@ -5,7 +5,9 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all.order('created_at DESC')
+    #@entries = Entry.all.order('created_at DESC')
+    @entries = Entry.where("YEAR(created_at) = 2018").order('created_at DESC')
+    @entries_17 = Entry.where("YEAR(created_at) = 2017").order('created_at DESC')
   end
 
   # GET /entries/1
