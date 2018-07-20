@@ -40,7 +40,7 @@
             <td><%= entry.gift %></td>
         <% end %>
         
-        <td><%= entry.created_at.to_date %></td>
+        <td><%= entry.created_at.to_time %></td>
         <% if current_user.email == "melvin@cspmconsulting.com" %>
             <td><%= link_to 'Eliminar', entry, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
         <% end %>

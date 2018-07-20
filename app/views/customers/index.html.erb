@@ -35,7 +35,7 @@
     <% @customers.each_with_index do |customer, i| %>
       <tr>
         <td><%= i+1 %></td>
-        <td><%= customer.created_at.to_date %></td>
+        <td><%= customer.created_at.to_time %></td>
         <td><%= customer.name %></td>
         <td><%= customer.birth %></td>
         <td><%= customer.city %></td>
