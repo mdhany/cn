@@ -8,9 +8,6 @@
 
 
 
-#Collector.create(email: 'melvin@cspmconsulting.com', password: 'cspm2014', password_confirmation: 'cspm2014')
-#User.create(email: 'melvin@cspmconsulting.com', password: 'cspm2014', password_confirmation: 'cspm2014')
-
 pass = '12345678'
 Collector.create!(name: 'CSPM Admin', email: 'cspm@chivasrd.com', password: pass, password_confirmation: pass)
 

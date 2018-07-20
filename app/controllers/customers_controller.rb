@@ -8,6 +8,11 @@ class CustomersController < ApplicationController
     Date::DATE_FORMATS[:latino] = '%d/%m/%Y'
     @customers = Customer.where("YEAR(created_at) = 2018").order('created_at DESC')
     @customers_17 = Customer.where("YEAR(created_at) = 2017").order('created_at DESC')
+
+    #respond_to do |format|
+      #format.html
+     # format.xlsx
+    #end
   end
 
   # GET /customers/1

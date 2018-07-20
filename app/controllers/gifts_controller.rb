@@ -73,9 +73,9 @@ class GiftsController < ApplicationController
       #type_g: 5 es para regalos de alto costo.
       #type_g: 10 es para los regalos en blanco. Estos deben tener inventario para que funcionen correctamente
       #Gift.create!([type_g: 10, name: 'Regalo EN BLANCO', position: 300, event_id: params[:event_id], inventory: 10, predicted:  10, priority: 1])  
-      Gift.create!([type_g: 10, name: 'Regalo EN BLANCO', position: 105, event_id: params[:event_id], inventory: 10, predicted:  10, priority: 1])
-      Gift.create!([type_g: 10, name: 'Regalo EN BLANCO', position: 205, event_id: params[:event_id], inventory: 10, predicted:  10, priority: 1])
-      Gift.create!([type_g: 10, name: 'Regalo EN BLANCO', position: 340, event_id: params[:event_id], inventory: 10, predicted:  10, priority: 1])
+      Gift.create!([type_g: 10, name: 'Sin Regalo', position: 105, event_id: params[:event_id], inventory: 10, predicted:  10, priority: 1])
+      Gift.create!([type_g: 10, name: 'Sin Regalo', position: 205, event_id: params[:event_id], inventory: 10, predicted:  10, priority: 1])
+      Gift.create!([type_g: 10, name: 'Sin Regalo', position: 340, event_id: params[:event_id], inventory: 10, predicted:  10, priority: 1])
 
       #Regalos normales
       Gift.create!([type_g: 0, name: 'Echo Speaker', position: 10, event_id: params[:event_id], inventory: params[:gifts][:echo], predicted: params[:gifts][:echo], priority: 1, image: 'r-EchoSpeaker.jpg'])

@@ -1,4 +1,11 @@
-<h1>Consumidores</h1>
+      <div class="col-md-10">
+        <h1>Consumidores</h1>
+      </div>
+      <div class="col-md-2">
+        <%#= link_to "Exportar Excel", customers_path(format: "xlsx"), class: "btn btn-lg green", style: "margin-top:10px;" %>
+      </div>
+
+<br>
 
 <div class="portlet box gold">
   <div class="portlet-title">
@@ -13,6 +20,7 @@
   <thead>
     <tr>
       <th>#</th>
+      <th>Creado</th>
       <th>Consumidor</th>
       <th>Nacimiento</th>
       <th>Ciudad</th>
@@ -27,6 +35,7 @@
     <% @customers.each_with_index do |customer, i| %>
       <tr>
         <td><%= i+1 %></td>
+        <td><%= customer.created_at.to_date %></td>
         <td><%= customer.name %></td>
         <td><%= customer.birth %></td>
         <td><%= customer.city %></td>
@@ -34,7 +43,7 @@
         <td><%= customer.email %></td>
         <td><small><%= customer.interest %></small></td>
         <td><%= link_to 'Ver', customer %></td>
-        <td><%= link_to 'Eliminar', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to 'Eliminar', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
